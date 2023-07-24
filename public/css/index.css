@@ -1,0 +1,74 @@
+#homepage-carousel-1{
+	position: relative; 
+	
+}
+
+#homepage-carousel-1::before{
+	content: "";
+	background-image: url('https://kms-technology.com/wp-content/uploads/2022/04/Atlanta.jpg');
+	background-size: cover;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	opacity: 0.4;
+}
+
+#homepage-carousel-2{
+	position: relative; 
+	
+}
+
+#homepage-carousel-2::before{
+	content: "";
+	background-image: url('https://media.baodautu.vn/Images/anhhoa/2019/07/04/Ong_Lam_Quc_V.jpg');
+	background-size: cover;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	opacity: 0.4;
+}
+
+#homepage-carousel-3{
+	position: relative; 
+	
+}
+
+#homepage-carousel-3::before{
+	content: "";
+	background-image: url('https://vcdn-english.vnecdn.net/2019/08/26/kobitondoingukysutaivietnam210-6792-8400-1566806843_500x300.png');
+	background-size: cover;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	opacity: 0.4;
+}
+
+#short-about .btn-get-started {
+	font-family: "Raleway", sans-serif;
+	font-weight: 500;
+	font-size: 14px;
+	letter-spacing: 1px;
+	display: inline-block;
+	padding: 12px 32px;
+	border-radius: 50px;
+	transition: 0.5s;
+	line-height: 1;
+	margin: 10px;
+	color: black;
+	-webkit-animation-delay: 0.8s;
+	animation-delay: 0.8s;
+	border: 2px solid #ef6603;
+
+  }
+
+  #short-about .btn-get-started:hover {
+	background: #ef6603;
+	color: #fff;
+	text-decoration: none;
+  }
