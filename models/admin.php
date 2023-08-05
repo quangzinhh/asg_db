@@ -27,7 +27,7 @@ class Admin
 
     static function getInit($username){
         $db = DB::getInstance();
-        $req = $db->query("SELECT init FROM admin WHERE username = '$username'");
+        $req = $db->query("CALL `select_init_admin`('$username')");
         $result = $req->fetch_assoc();
         return $result['init'];
     }
@@ -36,14 +36,14 @@ class Admin
     static function delete($username)
     {
         $db = DB::getInstance();
-        $req = $db->query("DELETE FROM admin WHERE username = '$username';");
+        $req = $db->query("CALL `delete_admin`('$username')");
         return $req;
     }
 
     static function validation($username, $password)
     {
         $db = DB::getInstance();
-        $req = $db->query("SELECT * FROM admin WHERE username = '$username'");
+        $req = $db->query("CALL `validate_admin`('$username')");
         if (@password_verify($password, $req->fetch_assoc()['password']))
             return true;
         else
@@ -56,9 +56,7 @@ class Admin
             $password = password_hash($newpassword, PASSWORD_DEFAULT);
             $db = DB::getInstance();
             $req = $db->query(
-                "UPDATE admin
-                SET password = '$password', updateAt = NOW()
-                WHERE username = '$username';"
+                "CALL `change_pass_admin`('$username, $password')"
             );
             return $req;
         } else {
@@ -71,9 +69,7 @@ class Admin
         $password = password_hash($newpassword, PASSWORD_DEFAULT);
         $db = DB::getInstance();
         $req = $db->query(
-            "UPDATE admin
-            SET password = '$password', updateAt = NOW()
-            WHERE username = '$username';"
+            "CALL `change_pass_admin`('$username, $password')"
         );
         return $req;
     }
