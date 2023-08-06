@@ -21,12 +21,12 @@ require_once('views/admin/content_layouts.php'); ?>
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Quản lý Sản phẩm</h1>
+                    <h1>Quản lý Tour</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="index.php?page=admin&controller=layouts&action=index">Home</a></li>
-                        <li class="breadcrumb-item active">Quản lý Sản phẩm</li>
+                        <li class="breadcrumb-item active">Quản lý Tour</li>
                     </ol>
                 </div>
             </div>
@@ -46,12 +46,12 @@ require_once('views/admin/content_layouts.php'); ?>
                             <div class="modal-dialog modal-xl">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Thêm mới sản phẩm</h5><button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h5 class="modal-title">Thêm mới tour</h5><button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     </div>
                                     <form id="form-add-student" action="index.php?page=admin&controller=products&action=add" enctype="multipart/form-data" method="post">
                                         <div class="modal-body">
                                             <div class="row">
-                                                <div  class="col-6"><label>Tên sản phẩm</label><input class="form-control" type="text" placeholder="Tên sản phẩm" name="name" /></div>
+                                                <div  class="col-6"><label>Tên tour</label><input class="form-control" type="text" placeholder="Tên tour" name="name" /></div>
                                                 
                                             </div>
                                             
@@ -72,7 +72,7 @@ require_once('views/admin/content_layouts.php'); ?>
                                     <thead>
                                         <tr  class="text-center">
                                             <th scope="col">STT</th>
-                                            <th scope="col">Tên sản phẩm</th>
+                                            <th scope="col">Tên tour</th>
                                             <th scope="col">Mô tả</th>
                                             <th scope="col">Nội dung</th>
                                             <th scope="col">Hình ảnh</th>
@@ -93,20 +93,20 @@ require_once('views/admin/content_layouts.php'); ?>
                                                         . $index. 
                                                     "</td>
                                                     <td>
-                                                       ". $product->name."
+                                                       ". $product->MaCN."
                                                     </td>
                                                     <td>
-                                                    " .  $product->description."
+                                                    " .  $product->TenTour."
                                                     </td>   
                                                     <td>
-                                                     " .  $product->content."
+                                                     " .  $product->NgayBatDau."
                                                     </td> 
                                                     <td>
-                                                    <img style=\"width: 300px; height:300px;\" src='$product->img'>
+                                                    <img style=\"width: 300px; height:300px;\" src='$product->Anh'>
                                                     </td>   
                                                     <td >
-                                                    <button class=\"btn-edit btn btn-primary btn-xs\" style=\"margin-right: 5px;\" data-id='$product->id' data-name='$product->name' data-price='$product->price' data-description='$product->description' data-content='$product->content' data-img='$product->img'> <i style=\"font-size:17px;\" class=\"fas fa-edit\" ></i></button>
-                                                    <button class=\"btn-delete btn btn-danger btn-xs\" style=\"margin-right: 5px\" data-id='$product->id' ><i style=\"font-size:17px;\" class=\"fas fa-trash\"></i></button> 
+                                                    <button class=\"btn-edit btn btn-primary btn-xs\" style=\"margin-right: 5px;\" data-id='$product->MaCN' data-name='$product->TenTour' data-price='$product->SoKhachDoanToiThieu' data-description='$product->SoDem' data-content='$product->SoNgay' data-img='$product->Anh'> <i style=\"font-size:17px;\" class=\"fas fa-edit\" ></i></button>
+                                                    <button class=\"btn-delete btn btn-danger btn-xs\" style=\"margin-right: 5px\" data-id='$product->MaCN' ><i style=\"font-size:17px;\" class=\"fas fa-trash\"></i></button> 
                                                     </td>     
                                                     <td>
                                                     
@@ -126,7 +126,7 @@ require_once('views/admin/content_layouts.php'); ?>
                                                     <div class="modal-body">
                                                          <div  class="col-12"><input class="form-control" type="hidden" placeholder="Name" name="id"  readonly/></div>
                                                         <div class="row">
-                                                            <div  class="col-6"><label>Tên sản phẩm</label><input class="form-control" type="text" placeholder="Tên sản phẩm" name="name" /></div>
+                                                            <div  class="col-6"><label>Tên tour</label><input class="form-control" type="text" placeholder="Tên tour" name="name" /></div>
                                                             
                                                         </div>
                                                         
@@ -149,7 +149,7 @@ require_once('views/admin/content_layouts.php'); ?>
                                                 </div>
                                                 <form action="index.php?page=admin&controller=products&action=delete" method="post">
                                                     <div class="modal-body"><input type="hidden" name="id" />
-                                                        <p>Bạn có chắc chắn muốn xóa sản phẩm này?</p>
+                                                        <p>Bạn có chắc chắn muốn xóa tour này?</p>
                                                     </div>
                                                     <div class="modal-footer"><button class="btn btn-danger btn-outline-light" type="button" data-dismiss="modal">Đóng</button><button class="btn btn-danger btn-outline-light" type="submit">Xóa</button></div>
                                                 </form>

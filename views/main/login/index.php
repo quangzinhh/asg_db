@@ -83,9 +83,6 @@
                 Log in
               </button>
 				</form>
-        <div class="text-center">
-                <p style="display: inline-block;">Don't have account yet?</p> <a href="index.php?page=main&controller=register&action=index">Sign up now</a>
-              </div>
               <!-- Admin login button -->
               <div class="text-center">
                 <a href="index.php?page=admin&controller=login&action=index">Login as Admin</a>

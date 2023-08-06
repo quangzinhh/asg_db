@@ -2,37 +2,62 @@
 require_once('connection.php');
 class Product
 {
-    public $id;
-    public $name;
-    public $price;
-    public $description;
-    public $content;
-    public $img;
+    public $MaTour;
+    public $TenTour;
+    public $Anh;
+    public $NgayBatDau;
+    public $SoKhachTourToiThieu;
+    public $SoKhachTourToiDa;
+    public $GiaVeLeNguoiLon;
+    public $GiaVeLeTreEm;
+    public $GiaVeDoanNguoiLon;
+    public $GiaVeDoanTreEm;
+    public $SoKhachDoanToiThieu;
+    public $SoDem;
+    public $SoNgay;
+    public $MaCN;
 
-    public function __construct($id, $name, $price, $description, $content, $img)
+    public function __construct($MaTour, $TenTour, $Anh, $NgayBatDau, $SoKhachTourToiThieu, 
+$SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDoanTreEm, $SoKhachDoanToiThieu, $SoDem, $SoNgay, $MaCN)
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->price = $price;
-        $this->description = $description;
-        $this->content = $content;
-        $this->img = $img;
+        $this->MaTour = $MaTour;
+        $this->TenTour = $TenTour;
+        $this->Anh = $Anh;
+        $this->NgayBatDau = $NgayBatDau;
+        $this->SoKhachTourToiThieu = $SoKhachTourToiThieu;
+        $this->SoKhachTourToiDa = $SoKhachTourToiDa;
+        $this->GiaVeLeNguoiLon = $GiaVeLeNguoiLon;
+        $this->GiaVeLeTreEm = $GiaVeLeTreEm;
+        $this->GiaVeDoanNguoiLon = $GiaVeDoanNguoiLon;
+        $this->GiaVeDoanTreEm = $GiaVeDoanTreEm;
+        $this->SoKhachDoanToiThieu = $SoKhachDoanToiThieu;
+        $this->SoDem = $SoDem;
+        $this->SoNgay = $SoNgay;
+        $this->MaCN = $MaCN;
     }
 
     static function getAll()
     {
         $db = DB::getInstance();
-        $req = $db->query("SELECT * FROM product");
+        $req = $db->query("SELECT * FROM tour");
         $products = [];
         foreach ($req->fetch_all(MYSQLI_ASSOC) as $product)
         {
             $products[] = new Product(
-                $product['id'],
-                $product['name'],
-                $product['price'],
-                $product['description'],
-                $product['content'],
-                $product['img']
+                $product['MaTour'],
+                $product['TenTour'],
+                $product['Anh'],
+                $product['NgayBatDau'],
+                $product['SoKhachTourToiThieu'],
+                $product['SoKhachTourToiDa'],
+                $product['GiaVeLeNguoiLon'],
+                $product['GiaVeLeTreEm'],
+                $product['GiaVeDoanNguoiLon'],
+                $product['GiaVeDoanTreEm'],
+                $product['SoKhachDoanToiThieu'],
+                $product['SoDem'],
+                $product['SoNgay'],
+                $product['MaCN']
             );
         }
         return $products;
@@ -41,44 +66,56 @@ class Product
     static function get($id)
     {
         $db = DB::getInstance();
-        $req = $db->query("SELECT * FROM product WHERE id = $id");
+        $req = $db->query("SELECT * FROM tour WHERE id = $id");
         $result = $req->fetch_assoc();
         $product = new Product(
-            $result['id'],
-            $result['name'],
-            $result['price'],
-            $result['description'],
-            $result['content'],
-            $result['img']
+            $result['MaTour'],
+            $result['TenTour'],
+            $result['Anh'],
+            $result['NgayBatDau'],
+            $result['SoKhachTourToiThieu'],
+            $result['SoKhachTourToiDa'],
+            $result['GiaVeLeNguoiLon'],
+            $result['GiaVeLeTreEm'],
+            $result['GiaVeDoanNguoiLon'],
+            $result['GiaVeDoanTreEm'],
+            $result['SoKhachDoanToiThieu'],
+            $result['SoDem'],
+            $result['SoNgay'],
+            $result['MaCN']
         );
         return $product;
     }
 
-    static function insert($name, $price, $description, $content, $img)
+    static function insert($MaTour, $TenTour, $Anh, $NgayBatDau, $SoKhachTourToiThieu, 
+    $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDoanTreEm, $SoKhachDoanToiThieu, $SoDem, $SoNgay, $MaCN)
     {
         $db = DB::getInstance();
         $req = $db->query(
-            "INSERT INTO product (name, price, description, content, img)
-            VALUES ('$name', $price, '$description', '$content', '$img');");
+            "INSERT INTO tour (MaTour, TenTour, Anh, NgayBatDau, SoKhachTourToiThieu, 
+            SoKhachTourToiDa, GiaVeLeNguoiLon, GiaVeLeTreEm, GiaVeDoanNguoiLon, GiaVeDoanTreEm, SoKhachDoanToiThieu, SoDem, SoNgay, MaCN)
+            VALUES ('$MaTour', $TenTour, '$Anh', '$NgayBatDau', '$SoKhachTourToiThieu', 
+            '$SoKhachTourToiDa', '$GiaVeLeNguoiLon', '$GiaVeLeTreEm', '$GiaVeDoanNguoiLon', '$GiaVeDoanTreEm', '$SoKhachDoanToiThieu', '$SoDem', '$SoNgay', '$MaCN');");
         return $req;
     }
 
-    static function delete($id)
+    static function delete($MaTour)
     {
         $db = DB::getInstance();
-        $req = $db->query("DELETE FROM product WHERE id = $id");
+        $req = $db->query("DELETE FROM tour WHERE MaTour = $MaTour");
         return $req;
     }
 
-    static function update($id, $name, $price, $description, $content, $img)
+    static function update($MaTour, $TenTour, $Anh, $NgayBatDau, $SoKhachTourToiThieu, 
+    $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDoanTreEm, $SoKhachDoanToiThieu, $SoDem, $SoNgay, $MaCN)
     {
-        $db = DB::getInstance();
-        $req = $db->query(
-            "
-                UPDATE product
-                SET name = '$name', price = $price, description = '$description', content = '$content', img = '$img'
-                WHERE id = $id
-            ;");
+        // $db = DB::getInstance();
+        // $req = $db->query(
+        //     "
+        //         UPDATE product
+        //         SET name = '$name', price = $price, description = '$description', content = '$content', img = '$img'
+        //         WHERE id = $id
+        //     ;");
     }
 }
 ?>

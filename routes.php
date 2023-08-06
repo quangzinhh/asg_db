@@ -2,7 +2,7 @@
 $pages = array(
   'error' => ['errors'],
   'main' => ['layouts', 'about', 'services', 'blog', 'archive', 'contact', 'login', 'register', 'edit'],
-  'admin' => ['layouts', 'members', 'products', 'news', 'comments']
+  'admin' => ['layouts', 'members', 'products', 'news', 'comments', 'staff']
 );
 $controllers = array(
   //Admin controller
@@ -13,6 +13,7 @@ $controllers = array(
   'news' => ['index','add','edit','delete','hide'],
   'comments' => ['index','hide','add','edit','delete'],
   'admin' => ['index', 'add', 'edit', 'delete'],
+  'staff' => ['index', 'add', 'edit', 'delete'],
   'user' => ['index', 'add', 'editInfo', 'editPass', 'delete'],
   'company' => ['index', 'add', 'edit', 'delete'],
   'login' => ['index', 'check', 'logout'],
