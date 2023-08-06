@@ -66,7 +66,7 @@ $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDo
     static function get($id)
     {
         $db = DB::getInstance();
-        $req = $db->query("SELECT * FROM tour WHERE id = $id");
+        $req = $db->query("SELECT * FROM tour WHERE MaTour = $id");
         $result = $req->fetch_assoc();
         $product = new Product(
             $result['MaTour'],
@@ -103,7 +103,7 @@ $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDo
     static function delete($MaTour)
     {
         $db = DB::getInstance();
-        $req = $db->query("DELETE FROM tour WHERE MaTour = $MaTour");
+        $req = $db->query("DELETE FROM tour WHERE MaTour = '$MaTour'");
         return $req;
     }
 

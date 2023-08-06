@@ -98,8 +98,8 @@ require_once('views/admin/content_layouts.php'); ?>
                                     <thead>
                                         <tr  class="text-center">
                                             <th scope="col">STT</th>
+                                            <th scope="col">Mã tour</th>
                                             <th scope="col">Tên tour</th>
-                                            <th scope="col">Mô tả</th>
                                             <th scope="col">Nội dung</th>
                                             <th scope="col">Hình ảnh</th>
                                             <th scope="col">Thao tác</th>
@@ -119,7 +119,7 @@ require_once('views/admin/content_layouts.php'); ?>
                                                         . $index. 
                                                     "</td>
                                                     <td>
-                                                       ". $product->MaCN."
+                                                       ". $product->MaTour."
                                                     </td>
                                                     <td>
                                                     " .  $product->TenTour."
@@ -131,8 +131,8 @@ require_once('views/admin/content_layouts.php'); ?>
                                                     <img style=\"width: 300px; height:300px;\" src='$product->Anh'>
                                                     </td>   
                                                     <td >
-                                                    <button class=\"btn-edit btn btn-primary btn-xs\" style=\"margin-right: 5px;\" data-id='$product->MaCN' data-name='$product->TenTour' data-price='$product->SoKhachDoanToiThieu' data-description='$product->SoDem' data-content='$product->SoNgay' data-img='$product->Anh'> <i style=\"font-size:17px;\" class=\"fas fa-edit\" ></i></button>
-                                                    <button class=\"btn-delete btn btn-danger btn-xs\" style=\"margin-right: 5px\" data-id='$product->MaCN' ><i style=\"font-size:17px;\" class=\"fas fa-trash\"></i></button> 
+                                                    <button class=\"btn-edit btn btn-primary btn-xs\" style=\"margin-right: 5px;\" data-id='$product->MaTour' data-name='$product->TenTour' data-price='$product->SoKhachDoanToiThieu' data-description='$product->SoDem' data-content='$product->SoNgay' data-img='$product->Anh'> <i style=\"font-size:17px;\" class=\"fas fa-edit\" ></i></button>
+                                                    <button class=\"btn-delete btn btn-danger btn-xs\" style=\"margin-right: 5px\" data-id='$product->MaTour' ><i style=\"font-size:17px;\" class=\"fas fa-trash\"></i></button> 
                                                     </td>     
                                                     <td>
                                                     
