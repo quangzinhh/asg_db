@@ -51,13 +51,39 @@ require_once('views/admin/content_layouts.php'); ?>
                                     <form id="form-add-student" action="index.php?page=admin&controller=products&action=add" enctype="multipart/form-data" method="post">
                                         <div class="modal-body">
                                             <div class="row">
+                                                <div  class="col-6"><label>Mã tour</label><input class="form-control" type="text" placeholder="Mã tour" name="matour" /></div>  
+                                            </div>
+                                            <div class="row">
                                                 <div  class="col-6"><label>Tên tour</label><input class="form-control" type="text" placeholder="Tên tour" name="name" /></div>
                                                 
                                             </div>
-                                            
-                                            <div class="form-group"> <label>Mô tả</label> <textarea class="form-control" name="description" rows="5"></textarea></div>
-                                            <div class="form-group"> <label>Nội dung</label> <textarea class="form-control" name="content" rows="10"></textarea></div>
+                                            <div class="form-group"> <label>Chi Nhánh</label> <select name="MaCN" id="MaCN"><?php 
+                                                $db = DB::getInstance();
+                                                $req = $db->query("SELECT * FROM chinhanh");
+                                                while($row = $req->fetch_assoc()) {
+                                                    echo "<option value='" . $row['MaCN'] . "'>" . $row['MaCN'] . "</option>";
+                                                }
+                                            ?></select></div>
+                                            <div class="form-group"> <label>Loại Tour</label> 
+                                                <select name="LoaiTour" id="LoaiTour">
+                                                    <?php
+                                                        echo "<option value='1'> Trong ngày </option>";
+                                                        echo "<option value='2'> Dài ngày </option>";
+                                                    ?>
+                                                </select>
+                                            </div>
                                             <div class="form-group"> <label>Hình ảnh </label>&nbsp <input type="file" name="fileToUpload" id="fileToUpload" /></div>
+                                            <div class="form-group"> <label>Ngày bắt đầu</label> <textarea class="form-control" name="NgayBatDau" rows="1"></textarea></div>
+                                            <div class="form-group"> <label>Số khách Tour tối thiểu</label> <textarea class="form-control" name="SoKhachTourToiThieu" rows="1"></textarea></div>
+                                            <div class="form-group"> <label>Số khách Tour tối đa</label> <textarea class="form-control" name="SoKhachTourToiDa" rows="1"></textarea></div>
+                                            <div class="form-group"> <label>Giá vé lẻ người lớn</label> <textarea class="form-control" name="GiaVeLeNguoiLon" rows="1"></textarea></div>
+                                            <div class="form-group"> <label>Giá vé lẻ trẻ em</label> <textarea class="form-control" name="GiaVeLeTreEm" rows="1"></textarea></div>
+                                            <div class="form-group"> <label>Giá vé đoàn người lớn</label> <textarea class="form-control" name="GiaVeDoanNguoiLon" rows="1"></textarea></div>
+                                            <div class="form-group"> <label>Giá vé đoàn trẻ em</label> <textarea class="form-control" name="GiaVeDoanTreEm" rows="1"></textarea></div>
+                                            <div class="form-group"> <label>Số khách đoàn tối thiểu</label> <textarea class="form-control" name="SoKhachDoanToiThieu" rows="1"></textarea></div>
+                                            <div class="form-group"> <label>Số đêm</label> <textarea class="form-control" name="SoDem" rows="1"></textarea></div>
+                                            <div class="form-group"> <label>Số ngày</label> <textarea class="form-control" name="SoNgay" rows="1"></textarea></div>
+                                            
                                         </div>
                                         <div class="modal-footer">
                                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Đóng</button>

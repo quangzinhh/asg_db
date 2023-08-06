@@ -19,9 +19,6 @@ class ProductsController extends BaseController
     public function add(){
         $id = (string)date("Y_m_d_h_i_sa");
         $fileuploadname = (string)$id;
-        $name = $_POST['name'];
-        $description = $_POST['description'];
-        $content = $_POST['content'];
         $target_dir = "public/img/products/";
         $path = $_FILES['fileToUpload']['name'];
         $ext = pathinfo($path, PATHINFO_EXTENSION);
@@ -42,7 +39,23 @@ class ProductsController extends BaseController
             echo "Sorry, your file is too large.";
         }
         move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
-        // Product::insert($name, 0, $description, $content, $target_file);
+        $MaTour = $_POST['matour'];
+        $MaCN = $_POST['MaCN'];
+        $TenTour = $_POST['name'];
+        
+        $NgayBatDau = $_POST['NgayBatDau'];
+        $SoKhachTourToiThieu = $_POST['SoKhachTourToiThieu'];
+        $SoKhachTourToiDa = $_POST['SoKhachTourToiDa'];
+        $GiaVeLeNguoiLon = $_POST['GiaVeLeNguoiLon'];
+        $GiaVeLeTreEm = $_POST['GiaVeLeTreEm'];
+        $GiaVeDoanNguoiLon = $_POST['GiaVeDoanNguoiLon'];
+        $GiaVeDoanTreEm = $_POST['GiaVeDoanTreEm'];
+        $SoKhachDoanToiThieu = $_POST['SoKhachDoanToiThieu'];
+        $SoDem = $_POST['SoDem'];
+        $SoNgay = $_POST['SoNgay'];
+        
+        Product::insert($MaTour, $TenTour, $target_file, $NgayBatDau, $SoKhachTourToiThieu, 
+        $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDoanTreEm, $SoKhachDoanToiThieu, $SoDem, $SoNgay, $MaCN);
         header('Location: index.php?page=admin&controller=products&action=index');
     }
     // public function edit(){

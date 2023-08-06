@@ -2,11 +2,11 @@
 require_once('controllers/admin/base_controller.php');
 require_once('models/admin.php');
 
-class AdminController extends BaseController
+class StaffController extends BaseController
 {
 	function __construct()
 	{
-		$this->folder = 'admin';
+		$this->folder = 'staff';
 	}
 
 	public function index()

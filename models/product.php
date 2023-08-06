@@ -92,10 +92,11 @@ $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDo
     {
         $db = DB::getInstance();
         $req = $db->query(
-            "INSERT INTO tour (MaTour, TenTour, Anh, NgayBatDau, SoKhachTourToiThieu, 
-            SoKhachTourToiDa, GiaVeLeNguoiLon, GiaVeLeTreEm, GiaVeDoanNguoiLon, GiaVeDoanTreEm, SoKhachDoanToiThieu, SoDem, SoNgay, MaCN)
-            VALUES ('$MaTour', $TenTour, '$Anh', '$NgayBatDau', '$SoKhachTourToiThieu', 
-            '$SoKhachTourToiDa', '$GiaVeLeNguoiLon', '$GiaVeLeTreEm', '$GiaVeDoanNguoiLon', '$GiaVeDoanTreEm', '$SoKhachDoanToiThieu', '$SoDem', '$SoNgay', '$MaCN');");
+            "INSERT INTO `tour` (`MaTour`, `TenTour`, `Anh`, `NgayBatDau`, `SoKhachTourToiThieu`, `SoKhachTourToiDa`, 
+            `GiaVeLeNguoiLon`, `GiaVeLeTreEm`, `GiaVeDoanNguoiLon`, `GiaVeDoanTreEm`, `SoKhachDoanToiThieu`, `SoDem`, `SoNgay`, `MaCN`) 
+            VALUES ('$MaTour', '$TenTour', '$Anh', '$NgayBatDau', '$SoKhachTourToiThieu', '$SoKhachTourToiDa', '$GiaVeLeNguoiLon', 
+            '$GiaVeLeTreEm', '$GiaVeDoanNguoiLon', '$GiaVeDoanTreEm', '$SoKhachDoanToiThieu', 
+            '$SoDem', '$SoNgay', '$MaCN');");
         return $req;
     }
 

@@ -90,7 +90,7 @@
 						<li class="nav-item">
 							<a class="nav-link" href="index.php?page=admin&controller=products&action=index">
 								<i class="nav-icon fas fa-cube"></i>
-								<p>Quản lý dịch vụ</p>
+								<p>Quản lý Tour</p>
 							</a>
 						</li>
 						<li class="nav-item">
