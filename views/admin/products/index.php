@@ -131,7 +131,8 @@ require_once('views/admin/content_layouts.php'); ?>
                                                     <img style=\"width: 300px; height:300px;\" src='$product->Anh'>
                                                     </td>   
                                                     <td >
-                                                    <button class=\"btn-edit btn btn-primary btn-xs\" style=\"margin-right: 5px;\" data-id='$product->MaCN' data-matour='$product->MaTour' data-tentour='$product->TenTour' data-ngaybatdau='$product->NgayBatDau' data-sokhachtourtoithieu='$product->SoKhachTourToiThieu' data-content='$product->SoNgay' data-img='$product->Anh'> <i style=\"font-size:17px;\" class=\"fas fa-edit\" ></i></button>
+                                                    <button class=\"btn-edit btn btn-primary btn-xs\" style=\"margin-right: 5px;\" data-id='$product->MaTour' data-matour='$product->MaTour' data-anh='$product->Anh' data-tentour='$product->TenTour' data-ngaybatdau='$product->NgayBatDau' data-sokhachtourtoithieu='$product->SoKhachTourToiThieu' data-sokhachtourtoida='$product->SoKhachTourToiDa' data-giavelenguoilon='$product->GiaVeLeNguoiLon'
+                                                    data-giaveletreem='$product->GiaVeLeTreEm' data-giavedoannguoilon='$product->GiaVeDoanNguoiLon' data-giavedoantreem='$product->GiaVeDoanTreEm' data-sokhachdoantoithieu='$product->SoKhachDoanToiThieu' data-sodem='$product->SoDem' data-songay='$product->SoNgay' data-macn='$product->MaCN'> <i style=\"font-size:17px;\" class=\"fas fa-edit\" ></i></button>
                                                     <button class=\"btn-delete btn btn-danger btn-xs\" style=\"margin-right: 5px\" data-id='$product->MaTour' ><i style=\"font-size:17px;\" class=\"fas fa-trash\"></i></button> 
                                                     </td>     
                                                     <td>
@@ -160,10 +161,19 @@ require_once('views/admin/content_layouts.php'); ?>
                                                         <div class="form-group"> <label>Ảnh</label> <img src="" alt="" name="ngaybatdau" /></div>
                                                         
                                                         <div class="form-group"> <label>Ngày bắt đầu</label> <input class="form-control" type="text" name="ngaybatdau" /></div>
-                                                        <div class="form-group"> <label>Ngày bắt đầu</label> <input class="form-control" type="text" name="ngaybatdau" /></div>
+                                                        <div class="form-group"> <label>Số khách tour tối thiểu</label> <input class="form-control" type="text" name="sokhachtourtoithieu" /></div>
+                                                        <div class="form-group"> <label>Số khách tour tối đa</label> <input class="form-control" type="text" name="sokhachtourtoida" /></div>
+                                                        <div class="form-group"> <label>Giá vé lẻ người lớn</label> <input class="form-control" type="text" name="giavelenguoilon" /></div>
+                                                        <div class="form-group"> <label>Giá vé lẻ trẻ em</label> <input class="form-control" type="text" name="giaveletreem" /></div>
+                                                        <div class="form-group"> <label>Giá vé đoàn người lớn</label> <input class="form-control" type="text" name="giavedoannguoilon" /></div>
+                                                        <div class="form-group"> <label>Giá vé đoàn trẻ em</label> <input class="form-control" type="text" name="giavedoantreem" /></div>
+                                                        <div class="form-group"> <label>Số khách đoàn tối tối thiểu</label> <input class="form-control" type="text" name="sokhachdoantoithieu" /></div>
+                                                        <div class="form-group"> <label>Số đêm</label> <input class="form-control" type="text" name="sodem" /></div>
+                                                        <div class="form-group"> <label>Số ngày</label> <input class="form-control" type="text" name="songay" /></div>
+                                                        <div class="form-group"> <label>Mã chi nhánh</label> <input class="form-control" type="text" name="macn" /></div>
 
 
-                                                        <div class="form-group"> <label>Mã Chi Nhánh</label> <textarea class="form-control" name="ca" rows="3"></textarea></div>
+                                                        <!-- <div class="form-group"> <label>Mã Chi Nhánh</label> <textarea class="form-control" name="ca" rows="3"></textarea></div> -->
 
                                                         <!-- <div class="form-group"> <label>Mã Tour</label> <textarea class="form-control" name="matour" rows="10"></textarea></div> -->
                                                         

@@ -66,7 +66,7 @@ $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDo
     static function get($id)
     {
         $db = DB::getInstance();
-        $req = $db->query("SELECT * FROM tour WHERE MaTour = $id");
+        $req = $db->query("SELECT * FROM tour WHERE MaTour = '$id'");
         $result = $req->fetch_assoc();
         $product = new Product(
             $result['MaTour'],
@@ -110,13 +110,15 @@ $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDo
     static function update($MaTour, $TenTour, $Anh, $NgayBatDau, $SoKhachTourToiThieu, 
     $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDoanTreEm, $SoKhachDoanToiThieu, $SoDem, $SoNgay, $MaCN)
     {
-        // $db = DB::getInstance();
-        // $req = $db->query(
-        //     "
-        //         UPDATE product
-        //         SET name = '$name', price = $price, description = '$description', content = '$content', img = '$img'
-        //         WHERE id = $id
-        //     ;");
+        $db = DB::getInstance();
+        $req = $db->query(
+            "
+                UPDATE `tour`
+                SET `MaTour` = '$MaTour', `TenTour` = '$TenTour', `Anh` = '$Anh', `NgayBatDau` = '$NgayBatDau', `SoKhachTourToiThieu` = '$SoKhachTourToiThieu',
+                `SoKhachTourToiDa` = '$SoKhachTourToiDa', `GiaVeLeNguoiLon` = '$GiaVeLeNguoiLon', `GiaVeLeTreEm` = '$GiaVeLeTreEm', `GiaVeDoanNguoiLon` = '$GiaVeDoanNguoiLon', `GiaVeDoanTreEm` = '$GiaVeDoanTreEm',
+                `SoDem` = '$SoDem', `SoNgay` = '$SoNgay', `MaCN` = '$MaCN'
+                WHERE `MaTour` = '$MaTour'
+            ;");
     }
 }
 ?>

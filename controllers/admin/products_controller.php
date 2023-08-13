@@ -63,20 +63,19 @@ class ProductsController extends BaseController
         $code = (string)date("Y_m_d_h_i_sa");
         $fileuploadname = (string)$code;
         $MaTour = $_POST['matour'];
-        $MaCN = $_POST['MaCN'];
-        $TenTour = $_POST['name'];
-        
-        $NgayBatDau = $_POST['NgayBatDau'];
-        $SoKhachTourToiThieu = $_POST['SoKhachTourToiThieu'];
-        $SoKhachTourToiDa = $_POST['SoKhachTourToiDa'];
-        $GiaVeLeNguoiLon = $_POST['GiaVeLeNguoiLon'];
-        $GiaVeLeTreEm = $_POST['GiaVeLeTreEm'];
-        $GiaVeDoanNguoiLon = $_POST['GiaVeDoanNguoiLon'];
-        $GiaVeDoanTreEm = $_POST['GiaVeDoanTreEm'];
-        $SoKhachDoanToiThieu = $_POST['SoKhachDoanToiThieu'];
-        $SoDem = $_POST['SoDem'];
-        $SoNgay = $_POST['SoNgay'];
-        $urlcurrent = Product::get((int)$id)->Anh;
+        $MaCN = $_POST['macn'];
+        $TenTour = $_POST['tentour'];
+        $NgayBatDau = $_POST['ngaybatdau'];
+        $SoKhachTourToiThieu = $_POST['sokhachtourtoithieu'];
+        $SoKhachTourToiDa = $_POST['sokhachtourtoida'];
+        $GiaVeLeNguoiLon = $_POST['giavelenguoilon'];
+        $GiaVeLeTreEm = $_POST['giaveletreem'];
+        $GiaVeDoanNguoiLon = $_POST['giavedoannguoilon'];
+        $GiaVeDoanTreEm = $_POST['giavedoantreem'];
+        $SoKhachDoanToiThieu = $_POST['sokhachdoantoithieu'];
+        $SoDem = $_POST['sodem'];
+        $SoNgay = $_POST['songay'];
+        $urlcurrent = Product::get($id)->Anh;
         if (!isset($_FILES["fileToUpload"]) || $_FILES['fileToUpload']['tmp_name'][0] == "")
         {
             Product::update($MaTour, $TenTour, $urlcurrent, $NgayBatDau, $SoKhachTourToiThieu, 
