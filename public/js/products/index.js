@@ -78,16 +78,50 @@ $(".btn-edit").click(function (e) {
   //console.log("I see youu")
   var id = $(this).data("id");
   var name = $(this).data("name");
-  var price = $(this).data("price");
+  var meo = $(this).data("meo");
+  var ca = $(this).data("ca");
+
   var description = $(this).data("description");
   var content = $(this).data("content");
   var img = $(this).data("img");
   $("#EditStudentModal input[name='id']").val(id);
   $("#EditStudentModal input[name='name']").val(name);
-  $("#EditStudentModal input[name='price']").val(price);
+  $("#EditStudentModal textarea[name='meo']").val(meo);
+  $("#EditStudentModal textarea[name='ca']").val(ca);
+
   $("#EditStudentModal textarea[name='description']").val(description);
   $("#EditStudentModal textarea[name='content']").val(content);
   $("#EditStudentModal input[name='imggg']").val(img);
+  var MaTour = $(this).data("MaTour");
+  var TenTour = $(this).data("TenTour");
+  var Anh = $(this).data("Anh");
+  var NgayBatDau = $(this).data("NgayBatDau");
+  var SoKhachTourToiThieu = $(this).data("SoKhachTourToiThieu");
+  var SoKhachTourToiDa = $(this).data("SoKhachTourToiDa");
+  var GiaVeLeNguoiLon = $(this).data("GiaVeLeNguoiLon");
+  var GiaVeLeTreEm = $(this).data("GiaVeLeTreEm");
+  var GiaVeDoanNguoiLon = $(this).data("GiaVeDoanNguoiLon");
+  var GiaVeDoanTreEm = $(this).data("GiaVeDoanTreEm");
+  var SoKhachDoanToiThieu = $(this).data("SoKhachDoanToiThieu");
+  var SoDem = $(this).data("SoDem");
+  var SoNgay = $(this).data("SoNgay");
+  var MaCN = $(this).data("MaCN");
+
+
+  $("#EditStudentModal input[name='MaTour']").val(MaTour);
+  $("#EditStudentModal input[name='TenTour']").val(TenTour);
+  $("#EditStudentModal input[name='Anh']").val(Anh);
+  $("#EditStudentModal input[name='NgayBatDau']").val(NgayBatDau);
+  $("#EditStudentModal input[name='SoKhachTourToiThieu']").val(SoKhachTourToiThieu);
+  $("#EditStudentModal input[name='SoKhachTourToiDa']").val(SoKhachTourToiDa);
+  $("#EditStudentModal input[name='GiaVeLeNguoiLon']").val(GiaVeLeNguoiLon);
+  $("#EditStudentModal input[name='GiaVeLeTreEm']").val(GiaVeLeTreEm);
+  $("#EditStudentModal input[name='GiaVeDoanNguoiLon']").val(GiaVeDoanNguoiLon);
+  $("#EditStudentModal input[name='GiaVeDoanTreEm']").val(GiaVeDoanTreEm);
+  $("#EditStudentModal input[name='SoKhachDoanToiThieu']").val(SoKhachDoanToiThieu);
+  $("#EditStudentModal input[name='SoDem']").val(SoDem);
+  $("#EditStudentModal input[name='SoNgay']").val(SoNgay);
+  $("#EditStudentModal input[name='MaCN']").val(MaCN);
   $("#EditStudentModal").modal("show");
 });
 

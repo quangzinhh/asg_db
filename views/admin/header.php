@@ -4,9 +4,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>BOSCH COMPANY</title>
+	<title>TOUR COMPANY</title>
 
-	<link href="https://www.logolynx.com/images/logolynx/94/94174906fca1b19e84305fa6f5160ddb.png" rel="icon">
+	<link href="https://clipground.com/images/logo-traveloka-png-9.jpg" rel="icon">
 	
 	<!-- Google Font: Source Sans Pro-->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700&display=fallback">

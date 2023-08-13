@@ -30,14 +30,11 @@
 		</nav>
 		<!-- /.navbar-->
 		<!-- Main Sidebar Container-->
-		<aside class="main-sidebar sidebar-dark-primary elevation-4">
-			<!-- Brand Logo-->
-			<!-- <a class="brand-link" href="index.php?page=admin&controller=layouts&action=index" style="margin-left:20px;">
-				<h3>KMS<span style="color: #00BFFF;"> TECHNOLOGY</span>
-			</a></h3> -->
+		<aside class="main-sidebar sidebar-primary-primary elevation-4">
+
 
 			<a href="index.php?page=admin&controller=layouts&action=index" class="brand-link" >
-				<img class="brand-image" src="https://logos-download.com/wp-content/uploads/2016/03/Bosch-logo.png" alt="bosch Logo" style="opacity: .8">
+				<img class="brand-image" src="https://lspmks.co.id/wp-content/uploads/2020/10/traveloka_logo.png" alt="dulichviet Logo" style="width: 200px" >
 				<span class="brand-text font-weight-light" style="margin-left: 5px;"><strong></strong></span>
 			</a>
 			<!-- Sidebar-->
