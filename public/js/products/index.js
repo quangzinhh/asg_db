@@ -94,6 +94,8 @@ $(".btn-edit").click(function (e) {
   var sodem = $(this).data("sodem");
   var songay = $(this).data("songay");
   var macn = $(this).data("macn");
+  var lichtrinh = $(this).data("lichtrinh");
+
 
   var description = $(this).data("description");
   var content = $(this).data("content");
@@ -108,6 +110,9 @@ $(".btn-edit").click(function (e) {
   $("#EditStudentModal textarea[name='description']").val(description);
   $("#EditStudentModal textarea[name='content']").val(content);
   $("#EditStudentModal input[name='imggg']").val(img);
+  $("#lichtrinh").html(lichtrinh);
+
+
   
   // var matour = $(this).data("matour");
   // var anh = $(this).data("anh");
@@ -145,3 +150,13 @@ $(".btn-delete").click(function (e) {
   $("#DeleteStudentModal input[name='id']").val(id);
   $("#DeleteStudentModal").modal("show");
 });
+
+
+
+$(".btn-add").click(function (e) {
+  var id = $(this).data("id");
+  $("#AddStudentModal input[name='id']").val(id);
+  $("#AddStudentModal").modal("show");
+  // alert("Cleck");
+});
+

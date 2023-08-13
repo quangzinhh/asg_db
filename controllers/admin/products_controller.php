@@ -58,6 +58,17 @@ class ProductsController extends BaseController
         $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDoanTreEm, $SoKhachDoanToiThieu, $SoDem, $SoNgay, $MaCN);
         header('Location: index.php?page=admin&controller=products&action=index');
     }
+    public function addLichtrinh() {
+        $MaTour = $_POST['id'];
+        $Ngay = $_POST['ngay'];
+        $HanhDong = $_POST['action'];
+        $GioBatDau = $_POST['starttime'];
+        $GioKetThuc = $_POST['endtime'];
+        $Mota = $_POST['mota'];
+        Product::addLichtrinh($MaTour, $Ngay, $HanhDong, $GioBatDau, $GioKetThuc, $Mota);
+        header('Location: index.php?page=admin&controller=products&action=index');
+
+    }
     public function edit(){
         $id = $_POST['id'];
         $code = (string)date("Y_m_d_h_i_sa");

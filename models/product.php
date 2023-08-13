@@ -97,6 +97,13 @@ $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDo
             VALUES ('$MaTour', '$TenTour', '$Anh', '$NgayBatDau', '$SoKhachTourToiThieu', '$SoKhachTourToiDa', '$GiaVeLeNguoiLon', 
             '$GiaVeLeTreEm', '$GiaVeDoanNguoiLon', '$GiaVeDoanTreEm', '$SoKhachDoanToiThieu', 
             '$SoDem', '$SoNgay', '$MaCN');");
+        if($req) {
+            for($i = 1; $i<=$SoNgay; $i++) {
+                $db->query(
+                    "INSERT INTO `lichtrinhtour` (`MaTour`, `STTNgay`) VALUES ('$MaTour', '$i');"
+                );
+            }
+        }   
         return $req;
     }
 
@@ -119,6 +126,13 @@ $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDo
                 `SoDem` = '$SoDem', `SoNgay` = '$SoNgay', `MaCN` = '$MaCN'
                 WHERE `MaTour` = '$MaTour'
             ;");
+    }
+    static function addLichtrinh($MaTour, $Ngay, $HanhDong, $GioBatDau, $GioKetThuc, $MoTa)
+    {
+        $db = DB::getInstance();
+        $req = $db->query(
+            "INSERT INTO `hanhdonglichtrinhtour` (`MaTour`, `STTNgay`, `LoaiHanhDong`, `GioBatDau`, `GioKetThuc`, `MoTa`) 
+            VALUES ('$MaTour', '$Ngay', '$HanhDong', '$GioBatDau', '$GioKetThuc', '$MoTa');");
     }
 }
 ?>

@@ -112,7 +112,15 @@ require_once('views/admin/content_layouts.php'); ?>
                                             $index = 1;
 
                                             foreach ($products as $product) {  
-                                                                                         
+                                                $db = DB::getInstance();
+                                                $LichTrinh = "";                                   
+                                                for($i = 1; $i<$product->SoNgay; $i++) {
+                                                    $req = $db->query("SELECT * FROM hanhdonglichtrinhtour WHERE (STTNgay = $i AND MaTour = '$product->MaTour') ORDER BY GioBatDau");
+                                                    $LichTrinh = $LichTrinh."<div> Ngày thứ $i </div> <br>";
+                                                    while($row = $req->fetch_assoc()) {
+                                                        $LichTrinh = $LichTrinh."<div>".$row['LoaiHanhDong']."-".$row["GioBatDau"]."-".$row['GioKetThuc']."</div><br>";
+                                                    }
+                                                }   
                                                 echo 
                                                 "<tr class=\"text-center\">
                                                     <td>"
@@ -132,7 +140,9 @@ require_once('views/admin/content_layouts.php'); ?>
                                                     </td>   
                                                     <td >
                                                     <button class=\"btn-edit btn btn-primary btn-xs\" style=\"margin-right: 5px;\" data-id='$product->MaTour' data-matour='$product->MaTour' data-anh='$product->Anh' data-tentour='$product->TenTour' data-ngaybatdau='$product->NgayBatDau' data-sokhachtourtoithieu='$product->SoKhachTourToiThieu' data-sokhachtourtoida='$product->SoKhachTourToiDa' data-giavelenguoilon='$product->GiaVeLeNguoiLon'
+                                                    data-lichtrinh='$LichTrinh'
                                                     data-giaveletreem='$product->GiaVeLeTreEm' data-giavedoannguoilon='$product->GiaVeDoanNguoiLon' data-giavedoantreem='$product->GiaVeDoanTreEm' data-sokhachdoantoithieu='$product->SoKhachDoanToiThieu' data-sodem='$product->SoDem' data-songay='$product->SoNgay' data-macn='$product->MaCN'> <i style=\"font-size:17px;\" class=\"fas fa-edit\" ></i></button>
+                                                    <button class=\"btn-add btn btn-success btn-xs\" style=\"margin-right: 5px\" data-id='$product->MaTour' ><i style=\"font-size:17px;\" class=\"fas fa-plus\"></i></button> 
                                                     <button class=\"btn-delete btn btn-danger btn-xs\" style=\"margin-right: 5px\" data-id='$product->MaTour' ><i style=\"font-size:17px;\" class=\"fas fa-trash\"></i></button> 
                                                     </td>     
                                                     <td>
@@ -171,8 +181,9 @@ require_once('views/admin/content_layouts.php'); ?>
                                                         <div class="form-group"> <label>Số đêm</label> <input class="form-control" type="text" name="sodem" /></div>
                                                         <div class="form-group"> <label>Số ngày</label> <input class="form-control" type="text" name="songay" /></div>
                                                         <div class="form-group"> <label>Mã chi nhánh</label> <input class="form-control" type="text" name="macn" /></div>
+                                                        <div class="form-group"> <label>Lịch trình</label> <div id="lichtrinh"> </div></div>
 
-
+                                                        
                                                         <!-- <div class="form-group"> <label>Mã Chi Nhánh</label> <textarea class="form-control" name="ca" rows="3"></textarea></div> -->
 
                                                         <!-- <div class="form-group"> <label>Mã Tour</label> <textarea class="form-control" name="matour" rows="10"></textarea></div> -->
@@ -185,6 +196,64 @@ require_once('views/admin/content_layouts.php'); ?>
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="modal fade" id="ViewStudentModal" tabindex="-1" role="dialog" aria-labelledby="DeleteStudentModal" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content bg-danger">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Xóa</h5><button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal fade" id="AddStudentModal" tabindex="-1" role="dialog" aria-labelledby="EditStudentModal" aria-hidden="true">
+                                        <div class="modal-dialog modal-xl" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Thêm lịch trình</h5><button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                </div>
+                                                <form id="form-add-student" action="index.php?page=admin&controller=products&action=addLichTrinh" enctype="multipart/form-data" method="post">
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div  class="col-6"><label>Mã tour</label><input class="form-control" type="text" placeholder="Mã tour" name="id" /></div>  
+                                                        </div>
+                                                        <div class="row">
+                                                            <div  class="col-6"><label>Ngày</label><input class="form-control" type="text" placeholder="Ngày" name="ngay" /></div>
+                                                            
+                                                        </div>
+                                                        <div class="form-group"> <label>Hành động</label> <select name="action" id="action">
+                                                            <option value="1">Khởi hành tour</option>
+                                                            <option value="2">Kết thúc tour</option>
+                                                            <option value="3">Ăn sáng</option>
+                                                            <option value="4">Ăn trưa</option>
+                                                            <option value="5">Ăn tối</option>
+                                                            <option value="6">Check in</option>
+                                                            <option value="7">Check out</option>
+                                                        </select></div>
+                                                        <div class="form-group"> <label>Giờ bắt đầu</label> 
+                                                            <input type="time" name="starttime" id="starttime" />
+                                                        </div>
+                                                        <div class="form-group"> <label>Giờ kết thúc</label> 
+                                                            <input type="time" name="endtime" id="endtime" />
+                                                        </div>
+                                                        <div class="row">
+                                                            <div  class="col-6"><label>Mô tả</label><input class="form-control" type="text" placeholder="Mô tả" name="mota" /></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Đóng</button>
+                                                        <button class="btn btn-primary" type="submit">Thêm mới</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
                                     <div class="modal fade" id="DeleteStudentModal" tabindex="-1" role="dialog" aria-labelledby="DeleteStudentModal" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content bg-danger">
