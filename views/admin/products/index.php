@@ -131,7 +131,7 @@ require_once('views/admin/content_layouts.php'); ?>
                                                     <img style=\"width: 300px; height:300px;\" src='$product->Anh'>
                                                     </td>   
                                                     <td >
-                                                    <button class=\"btn-edit btn btn-primary btn-xs\" style=\"margin-right: 5px;\" data-id='$product->MaTour' data-name='$product->TenTour' data-meo='$product->SoNgay' data-ca='$product->MaCN' data-description='$product->SoDem' data-content='$product->SoNgay' data-img='$product->Anh'> <i style=\"font-size:17px;\" class=\"fas fa-edit\" ></i></button>
+                                                    <button class=\"btn-edit btn btn-primary btn-xs\" style=\"margin-right: 5px;\" data-id='$product->MaCN' data-matour='$product->MaTour' data-tentour='$product->TenTour' data-ngaybatdau='$product->NgayBatDau' data-sokhachtourtoithieu='$product->SoKhachTourToiThieu' data-content='$product->SoNgay' data-img='$product->Anh'> <i style=\"font-size:17px;\" class=\"fas fa-edit\" ></i></button>
                                                     <button class=\"btn-delete btn btn-danger btn-xs\" style=\"margin-right: 5px\" data-id='$product->MaTour' ><i style=\"font-size:17px;\" class=\"fas fa-trash\"></i></button> 
                                                     </td>     
                                                     <td>
@@ -152,14 +152,20 @@ require_once('views/admin/content_layouts.php'); ?>
                                                     <div class="modal-body">
                                                          <div  class="col-12"><input class="form-control" type="hidden" placeholder="Name" name="id"  readonly/></div>
                                                         <div class="row">
-                                                            <div  class="col-6"><label>Tên tour</label><input class="form-control" type="text" placeholder="Tên tour" name="name" /></div>
+                                                            <div  class="col-6"><label>Mã tour</label><input class="form-control" type="text" name="matour" /></div>
                                                             
                                                         </div>
                                                         
-                                                        <div class="form-group"> <label>Số Ngày</label> <textarea class="form-control" name="meo" rows="5"></textarea></div>
+                                                        <div class="form-group"> <label>Tên tour</label> <input class="form-control" type="text" name="tentour" /></div>
+                                                        <div class="form-group"> <label>Ảnh</label> <img src="" alt="" name="ngaybatdau" /></div>
+                                                        
+                                                        <div class="form-group"> <label>Ngày bắt đầu</label> <input class="form-control" type="text" name="ngaybatdau" /></div>
+                                                        <div class="form-group"> <label>Ngày bắt đầu</label> <input class="form-control" type="text" name="ngaybatdau" /></div>
+
+
                                                         <div class="form-group"> <label>Mã Chi Nhánh</label> <textarea class="form-control" name="ca" rows="3"></textarea></div>
 
-                                                        <div class="form-group"> <label>Nội dung</label> <textarea class="form-control" name="content" rows="10"></textarea></div>
+                                                        <!-- <div class="form-group"> <label>Mã Tour</label> <textarea class="form-control" name="matour" rows="10"></textarea></div> -->
                                                         
                                                         <div class="form-group"> <label> Hình ảnh </label>&nbsp <input type="file" name="fileToUpload" id="fileToUpload" /></div>
 
