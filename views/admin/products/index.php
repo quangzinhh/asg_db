@@ -168,7 +168,7 @@ require_once('views/admin/content_layouts.php'); ?>
                                                         </div>
                                                         
                                                         <div class="form-group"> <label>Tên tour</label> <input class="form-control" type="text" name="tentour" /></div>
-                                                        <div class="form-group"> <label>Ảnh</label> <img src="" alt="" name="ngaybatdau" /></div>
+                                                        <div class="form-group"> <img style="width: 50%;" src="" alt="" name="ngaybatdau" /></div>
                                                         
                                                         <div class="form-group"> <label>Ngày bắt đầu</label> <input class="form-control" type="text" name="ngaybatdau" /></div>
                                                         <div class="form-group"> <label>Số khách tour tối thiểu</label> <input class="form-control" type="text" name="sokhachtourtoithieu" /></div>
