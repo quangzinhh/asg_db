@@ -54,9 +54,9 @@
     width: 100%;
     z-index: 9999;">
     <div class="container-fluid position-relative p-0" >
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5 py-3 py-lg-0">
+          <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0" style="background-color: #AFEEEE;">
               <a href="index.php" class="navbar-brand p-0">
-                  <img src="https://logos-download.com/wp-content/uploads/2016/03/Bosch-logo.png" alt="logo" style="max-height: 30px;">
+                  <img src="https://lspmks.co.id/wp-content/uploads/2020/10/traveloka_logo.png" alt="logo" style="max-height: 30px;">
               </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                   <span class="fa fa-bars"></span>
@@ -64,11 +64,11 @@
               <div class="collapse navbar-collapse" id="navbarCollapse">
                   <div class="navbar-nav ms-auto py-0">
                       <a href="index.php" class="nav-item nav-link"  style="color: white">Home</a>
-                      <a href="index.php?page=main&controller=about&action=index" class="nav-item nav-link" style="color: white">Intro</a>
-                      <a href="index.php?page=main&controller=archive&action=index" class="nav-item nav-link"  style="color: white">Achievements</a>
-                      <a href="index.php?page=main&controller=services&action=index" class="nav-item nav-link"  style="color: white">Services</a>
-                      <a href="index.php?page=main&controller=blog&action=index" class="nav-item nav-link"  style="color: white">News</a>
-                      <a href="index.php?page=main&controller=contact&action=index" class="nav-item nav-link"  style="color: white">Connections</a>
+                      <a href="#" class="nav-item nav-link" style="color: black">Intro</a>
+                      <a href="#" class="nav-item nav-link"  style="color: black">Achievements</a>
+                      <a href="#" class="nav-item nav-link"  style="color: black">Services</a>
+                      <a href="#" class="nav-item nav-link"  style="color: black">News</a>
+                      <a href="#" class="nav-item nav-link"  style="color: black">Connections</a>
                       <?php
                         if(!isset($_SESSION["guest"])) {
                           echo '
