@@ -42,6 +42,7 @@ require_once('views/admin/content_layouts.php'); ?>
                         <!-- /.card-header-->
                         <div class="card-body">
                         <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addUserModal">Thêm mới</button>
+                        <button class="btn btn-success" type="button" data-toggle="modal" data-target="#doanhthu">Xem doanh thu</button>
                         <div class="modal fade" id="addUserModal"  aria-labelledby="addUserModal" aria-hidden="true">
                             <div class="modal-dialog modal-xl">
                                 <div class="modal-content">
@@ -51,21 +52,25 @@ require_once('views/admin/content_layouts.php'); ?>
                                     <form id="form-add-student" action="index.php?page=admin&controller=products&action=add" enctype="multipart/form-data" method="post">
                                         <div class="modal-body">
                                             <div class="row">
-                                                <div  class="col-6"><label>Mã tour</label><input class="form-control" type="text" placeholder="Mã tour" name="matour" /></div>  
+                                                <div class="col-6">
+                                                    <label for="name">Tên tour</label>
+                                                    <input class="form-control" type="text" id="name" placeholder="Tên tour" name="name" />
+                                                </div>
                                             </div>
-                                            <div class="row">
-                                                <div  class="col-6"><label>Tên tour</label><input class="form-control" type="text" placeholder="Tên tour" name="name" /></div>
-                                                
+                                            <div class="form-group">
+                                                <label for="MaCN">Chi Nhánh</label>
+                                                <select class="form-control" name="MaCN" id="MaCN">
+                                                    <?php 
+                                                        $db = DB::getInstance();
+                                                        $req = $db->query("SELECT * FROM chinhanh");
+                                                        while($row = $req->fetch_assoc()) {
+                                                            echo "<option value='" . $row['MaCN'] . "'>" . $row['MaCN'] . "</option>";
+                                                        }
+                                                    ?>
+                                                </select>
                                             </div>
-                                            <div class="form-group"> <label>Chi Nhánh</label> <select name="MaCN" id="MaCN"><?php 
-                                                $db = DB::getInstance();
-                                                $req = $db->query("SELECT * FROM chinhanh");
-                                                while($row = $req->fetch_assoc()) {
-                                                    echo "<option value='" . $row['MaCN'] . "'>" . $row['MaCN'] . "</option>";
-                                                }
-                                            ?></select></div>
                                             <div class="form-group"> <label>Loại Tour</label> 
-                                                <select name="LoaiTour" id="LoaiTour">
+                                                <select class="form-control" name="LoaiTour" id="LoaiTour">
                                                     <?php
                                                         echo "<option value='1'> Trong ngày </option>";
                                                         echo "<option value='2'> Dài ngày </option>";
@@ -83,7 +88,6 @@ require_once('views/admin/content_layouts.php'); ?>
                                             <div class="form-group"> <label>Số khách đoàn tối thiểu</label> <textarea class="form-control" name="SoKhachDoanToiThieu" rows="1"></textarea></div>
                                             <div class="form-group"> <label>Số đêm</label> <textarea class="form-control" name="SoDem" rows="1"></textarea></div>
                                             <div class="form-group"> <label>Số ngày</label> <textarea class="form-control" name="SoNgay" rows="1"></textarea></div>
-                                            
                                         </div>
                                         <div class="modal-footer">
                                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Đóng</button>
@@ -93,6 +97,16 @@ require_once('views/admin/content_layouts.php'); ?>
                                 </div>
                             </div>
                         </div>
+                        <div class="modal fade" id="doanhthu" tabindex="-1" role="dialog" aria-labelledby="EditStudentModal" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Xem doanh thu</h5><button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
                             <div class="row"></div>
                                 <table id="TAB-product" class="table table-bordered table-striped"> 
                                     <thead>
@@ -100,7 +114,7 @@ require_once('views/admin/content_layouts.php'); ?>
                                             <th scope="col">STT</th>
                                             <th scope="col">Mã tour</th>
                                             <th scope="col">Tên tour</th>
-                                            <th scope="col">Nội dung</th>
+                                            <th scope="col">Ngày bắt đầu</th>
                                             <th scope="col">Hình ảnh</th>
                                             <th scope="col">Thao tác</th>
                                         </tr>
@@ -116,9 +130,18 @@ require_once('views/admin/content_layouts.php'); ?>
                                                 $LichTrinh = "";                                   
                                                 for($i = 1; $i<$product->SoNgay; $i++) {
                                                     $req = $db->query("SELECT * FROM hanhdonglichtrinhtour WHERE (STTNgay = $i AND MaTour = '$product->MaTour') ORDER BY GioBatDau");
-                                                    $LichTrinh = $LichTrinh."<div> Ngày thứ $i </div> <br>";
+                                                    $LichTrinh = $LichTrinh."<div style=\"font-weight: bold;\"> Ngày thứ $i </div> <br>";
                                                     while($row = $req->fetch_assoc()) {
-                                                        $LichTrinh = $LichTrinh."<div>".$row['LoaiHanhDong']."-".$row["GioBatDau"]."-".$row['GioKetThuc']."</div><br>";
+                                                        $hanhDongMapping = array(
+                                                            1 => "Khởi hành tour",
+                                                            2 => "Kết thúc tour",
+                                                            3 => "Ăn sáng",
+                                                            4 => "Ăn trưa",
+                                                            5 => "Ăn tối",
+                                                            6 => "Check in",
+                                                            7 => "Check out"
+                                                        );
+                                                        $LichTrinh = $LichTrinh."<div>".date("H:i", strtotime($row["GioBatDau"]))." - ".date("H:i", strtotime($row['GioKetThuc'])).": ".$hanhDongMapping[$row['LoaiHanhDong']]."</div><br>";
                                                     }
                                                 }   
                                                 echo 

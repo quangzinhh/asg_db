@@ -36,7 +36,7 @@ require_once('views/admin/content_layouts.php'); ?>
 								<i class="fas fa-comments text-white"></i>
 							</div>
 							<h4 class="mb-3">Bình luận đánh giá</h4>
-							<a class="btn btn-lg btn-primary rounded" href="index.php?page=admin&controller=comments&action=index">
+							<a class="btn btn-lg btn-primary rounded" href="#">
 								<i class="bi bi-arrow-right"></i>
 							</a>
 						</div>

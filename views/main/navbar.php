@@ -64,11 +64,11 @@
               <div class="collapse navbar-collapse" id="navbarCollapse">
                   <div class="navbar-nav ms-auto py-0">
                       <a href="index.php" class="nav-item nav-link"  style="color: white">Home</a>
-                      <a href="index.php?page=main&controller=about&action=index" class="nav-item nav-link" style="color: white">Intro</a>
-                      <a href="index.php?page=main&controller=archive&action=index" class="nav-item nav-link"  style="color: white">Achievements</a>
-                      <a href="index.php?page=main&controller=services&action=index" class="nav-item nav-link"  style="color: white">Services</a>
-                      <a href="index.php?page=main&controller=blog&action=index" class="nav-item nav-link"  style="color: white">News</a>
-                      <a href="index.php?page=main&controller=contact&action=index" class="nav-item nav-link"  style="color: white">Connections</a>
+                      <a href="#" class="nav-item nav-link" style="color: white">Intro</a>
+                      <a href="#" class="nav-item nav-link"  style="color: white">Achievements</a>
+                      <a href="#" class="nav-item nav-link"  style="color: white">Services</a>
+                      <a href="#" class="nav-item nav-link"  style="color: white">News</a>
+                      <a href="#" class="nav-item nav-link"  style="color: white">Connections</a>
                       <?php
                         if(!isset($_SESSION["guest"])) {
                           echo '

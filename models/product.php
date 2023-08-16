@@ -87,23 +87,23 @@ $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDo
         return $product;
     }
 
-    static function insert($MaTour, $TenTour, $Anh, $NgayBatDau, $SoKhachTourToiThieu, 
+    static function insert($TenTour, $Anh, $NgayBatDau, $SoKhachTourToiThieu, 
     $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDoanTreEm, $SoKhachDoanToiThieu, $SoDem, $SoNgay, $MaCN)
     {
         $db = DB::getInstance();
         $req = $db->query(
-            "INSERT INTO `tour` (`MaTour`, `TenTour`, `Anh`, `NgayBatDau`, `SoKhachTourToiThieu`, `SoKhachTourToiDa`, 
-            `GiaVeLeNguoiLon`, `GiaVeLeTreEm`, `GiaVeDoanNguoiLon`, `GiaVeDoanTreEm`, `SoKhachDoanToiThieu`, `SoDem`, `SoNgay`, `MaCN`) 
-            VALUES ('$MaTour', '$TenTour', '$Anh', '$NgayBatDau', '$SoKhachTourToiThieu', '$SoKhachTourToiDa', '$GiaVeLeNguoiLon', 
+            "INSERT INTO tour(TenTour,Anh,NgayBatDau,SoKhachTourToiThieu,SoKhachTourToiDa,GiaVeLeNguoiLon,GiaVeLeTreEm,GiaVeDoanNguoiLon,GiaVeDoanTreEm,SoKhachDoanToiThieu,SoDem,SoNgay,MaCN)
+            VALUES
+            ('$TenTour', '$Anh', '$NgayBatDau', '$SoKhachTourToiThieu', '$SoKhachTourToiDa', '$GiaVeLeNguoiLon', 
             '$GiaVeLeTreEm', '$GiaVeDoanNguoiLon', '$GiaVeDoanTreEm', '$SoKhachDoanToiThieu', 
-            '$SoDem', '$SoNgay', '$MaCN');");
-        if($req) {
-            for($i = 1; $i<=$SoNgay; $i++) {
-                $db->query(
-                    "INSERT INTO `lichtrinhtour` (`MaTour`, `STTNgay`) VALUES ('$MaTour', '$i');"
-                );
-            }
-        }   
+            '$SoDem', '$SoNgay', '$MaCN')");
+        // if($req) {
+        //     for($i = 1; $i<=$SoNgay; $i++) {
+        //         $db->query(
+        //             "INSERT INTO `lichtrinhtour` (`MaTour`, `STTNgay`) VALUES ('$MaTour', '$i');"
+        //         );
+        //     }
+        // }   
         return $req;
     }
 

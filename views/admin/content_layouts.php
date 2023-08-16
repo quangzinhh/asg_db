@@ -73,13 +73,13 @@
 						
 						?>
 						<li class="nav-item">
-							<a class="nav-link" href="index.php?page=admin&controller=comments&action=index">
+							<a class="nav-link" href="#">
 								<i class="nav-icon fas fa-comments"></i>
 								<p>Bình luận đánh giá</p>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="index.php?page=admin&controller=user&action=index">
+							<a class="nav-link" href="#">
 								<i class="nav-icon fas fa-users-cog"></i>
 								<p>Danh sách User</p>
 							</a>
@@ -91,7 +91,7 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="index.php?page=admin&controller=news&action=index">
+							<a class="nav-link" href="#">
 								<i class="nav-icon fa fa-file" aria-hidden="true"></i>
 								<p>Quản lý tin tức</p>
 							</a>
