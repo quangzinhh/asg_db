@@ -41,8 +41,16 @@ require_once('views/admin/content_layouts.php'); ?>
                     <div class="card">
                         <!-- /.card-header-->
                         <div class="card-body">
-                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addUserModal">Thêm mới</button>
-                        <button class="btn btn-success" type="button" data-toggle="modal" data-target="#doanhthu">Xem doanh thu</button>
+                        <div class="container mt-4" style="margin-bottom: 15px;">
+                            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addUserModal">Thêm mới</button>
+                            <form action="index.php?page=admin&controller=products&action=xemdoanhthu" style="float: right;">
+                                <div class="input-group">
+                                <input class="form-control" type="text" id="name" placeholder="Nhập năm" name="namdoanhthu" style="max-width: 50%;">
+                                <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#doanhthu">Xem doanh thu</button>
+                                </div>
+                            </form>
+                        </div>
+                        
                         <div class="modal fade" id="addUserModal"  aria-labelledby="addUserModal" aria-hidden="true">
                             <div class="modal-dialog modal-xl">
                                 <div class="modal-content">
@@ -78,7 +86,7 @@ require_once('views/admin/content_layouts.php'); ?>
                                                 </select>
                                             </div>
                                             <div class="form-group"> <label>Hình ảnh </label>&nbsp <input type="file" name="fileToUpload" id="fileToUpload" /></div>
-                                            <div class="form-group"> <label>Ngày bắt đầu</label> <textarea class="form-control" name="NgayBatDau" rows="1"></textarea></div>
+                                            <div class="form-group"> <label>Ngày bắt đầu</label> <input type="date" class="form-control" id="ngaybatdau" name="NgayBatDau"></div>
                                             <div class="form-group"> <label>Số khách Tour tối thiểu</label> <textarea class="form-control" name="SoKhachTourToiThieu" rows="1"></textarea></div>
                                             <div class="form-group"> <label>Số khách Tour tối đa</label> <textarea class="form-control" name="SoKhachTourToiDa" rows="1"></textarea></div>
                                             <div class="form-group"> <label>Giá vé lẻ người lớn</label> <textarea class="form-control" name="GiaVeLeNguoiLon" rows="1"></textarea></div>
@@ -192,8 +200,7 @@ require_once('views/admin/content_layouts.php'); ?>
                                                         
                                                         <div class="form-group"> <label>Tên tour</label> <input class="form-control" type="text" name="tentour" /></div>
                                                         <div class="form-group"> <img style="width: 50%;" src="" alt="" name="ngaybatdau" /></div>
-                                                        
-                                                        <div class="form-group"> <label>Ngày bắt đầu</label> <input class="form-control" type="text" name="ngaybatdau" /></div>
+                                                        <div class="form-group"> <label>Ngày bắt đầu</label> <input type="date" class="form-control" id="ngaybatdau" name="ngaybatdau"></div>
                                                         <div class="form-group"> <label>Số khách tour tối thiểu</label> <input class="form-control" type="text" name="sokhachtourtoithieu" /></div>
                                                         <div class="form-group"> <label>Số khách tour tối đa</label> <input class="form-control" type="text" name="sokhachtourtoida" /></div>
                                                         <div class="form-group"> <label>Giá vé lẻ người lớn</label> <input class="form-control" type="text" name="giavelenguoilon" /></div>

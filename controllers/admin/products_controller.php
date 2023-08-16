@@ -39,7 +39,6 @@ class ProductsController extends BaseController
             echo "Sorry, your file is too large.";
         }
         move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
-        $MaTour = $_POST['matour'];
         $MaCN = $_POST['MaCN'];
         $TenTour = $_POST['name'];
         
@@ -54,7 +53,7 @@ class ProductsController extends BaseController
         $SoDem = $_POST['SoDem'];
         $SoNgay = $_POST['SoNgay'];
         
-        Product::insert($MaTour, $TenTour, $target_file, $NgayBatDau, $SoKhachTourToiThieu, 
+        Product::insert($TenTour, $target_file, $NgayBatDau, $SoKhachTourToiThieu, 
         $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDoanTreEm, $SoKhachDoanToiThieu, $SoDem, $SoNgay, $MaCN);
         header('Location: index.php?page=admin&controller=products&action=index');
     }
