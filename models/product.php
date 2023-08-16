@@ -1,5 +1,6 @@
 <?php
 require_once('connection.php');
+
 class Product
 {
     public $MaTour;
@@ -133,6 +134,19 @@ $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDo
         $req = $db->query(
             "INSERT INTO `hanhdonglichtrinhtour` (`MaTour`, `STTNgay`, `LoaiHanhDong`, `GioBatDau`, `GioKetThuc`, `MoTa`) 
             VALUES ('$MaTour', '$Ngay', '$HanhDong', '$GioBatDau', '$GioKetThuc', '$MoTa');");
+    }
+    static function doanhthu($nam)
+    {
+        $db = DB::getInstance();
+        $query = "CALL ThongKeDoanhThu('$nam')";
+        $result = $db->query($query);
+        $tableHtml = "<table>";
+        $tableHtml .= "<tr><th>Tháng</th><th>Tổng doanh thu</th></tr>";
+        while ($row = $result->fetch_assoc()) {
+            $tableHtml .= "<tr><td>" . $row["Thang"] . "</td><td>" . $row["TongDoanhThu"] . "</td></tr>";
+        }
+        $tableHtml .= "</table>";
+        return $tableHtml;
     }
 }
 ?>

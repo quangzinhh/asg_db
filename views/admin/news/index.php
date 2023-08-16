@@ -15,7 +15,14 @@ if (!isset($_SESSION["user"])) {
 <!-- Code -->
 <div class="content-wrapper">
     <!-- Add Content -->
-
+    <?php
+        if (isset($_COOKIE['doanhthu_table'])) {
+            $tableHtml = $_COOKIE['doanhthu_table'];
+        
+            // Display the HTML table
+            echo $tableHtml;
+        }
+    ?>
     
 
 

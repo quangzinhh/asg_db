@@ -43,7 +43,7 @@ require_once('views/admin/content_layouts.php'); ?>
                         <div class="card-body">
                         <div class="container mt-4" style="margin-bottom: 15px;">
                             <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addUserModal">Thêm mới</button>
-                            <form action="index.php?page=admin&controller=products&action=xemdoanhthu" style="float: right;">
+                            <form action="index.php?page=admin&controller=products&action=xemdoanhthu" style="float: right;" method = "post">
                                 <div class="input-group">
                                 <input class="form-control" type="text" id="name" placeholder="Nhập năm" name="namdoanhthu" style="max-width: 50%;">
                                 <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#doanhthu">Xem doanh thu</button>

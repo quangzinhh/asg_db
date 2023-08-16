@@ -3,6 +3,8 @@ require_once('controllers/admin/base_controller.php');
 require_once('models/product.php');
 
 
+
+
 class ProductsController extends BaseController
 {
 	function __construct()
@@ -67,6 +69,16 @@ class ProductsController extends BaseController
         Product::addLichtrinh($MaTour, $Ngay, $HanhDong, $GioBatDau, $GioKetThuc, $Mota);
         header('Location: index.php?page=admin&controller=products&action=index');
 
+    }
+    public function xemdoanhthu() {
+        $YearDoanhThu = $_POST['namdoanhthu'];
+        $doanhthu = Product::doanhthu($YearDoanhThu);
+
+        // Set a cookie with the table HTML
+        setcookie('doanhthu_table', $doanhthu, time() + 3600, '/'); // Cookie expires in 1 hour
+
+        // Perform the redirect
+        header('Location: index.php?page=admin&controller=news&action=index');
     }
     public function edit(){
         $id = $_POST['id'];
