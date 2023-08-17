@@ -166,7 +166,7 @@ $("#LoaiTour").change(function() {
   if (selectedValue == "1") { // Trong ngày
       $("#SoNgay").val("1"); // Set Số ngày to default value
       $("#SoDem").val("0"); // Set Số đêm to default value
-      $("#SoNgay, #SoDem").attr("disabled", true); // Disable inputs
+      $("#SoNgay, #SoDem").attr("readonly ", true); // Disable inputs
   } else if (selectedValue === "2") { // Dài ngày
       $("#SoNgay, #SoDem").val("").attr("disabled", false); // Enable inputs
   }

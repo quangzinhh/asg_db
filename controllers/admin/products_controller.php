@@ -52,8 +52,17 @@ class ProductsController extends BaseController
         $GiaVeDoanNguoiLon = $_POST['GiaVeDoanNguoiLon'];
         $GiaVeDoanTreEm = $_POST['GiaVeDoanTreEm'];
         $SoKhachDoanToiThieu = $_POST['SoKhachDoanToiThieu'];
-        $SoDem = $_POST['SoDem'];
-        $SoNgay = $_POST['SoNgay'];
+        if(isset($_POST['SoDem'])) {
+            $SoDem = $_POST['SoDem'];
+        } else {
+            $SoDem = '1';
+        }
+        
+        if(isset($_POST['SoNgay'])) {
+            $SoNgay = $_POST['SoNgay'];
+        } else {
+            $SoNgay = '1';
+        }
         
         Product::insert($TenTour, $target_file, $NgayBatDau, $SoKhachTourToiThieu, 
         $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDoanTreEm, $SoKhachDoanToiThieu, $SoDem, $SoNgay, $MaCN);
@@ -97,6 +106,7 @@ class ProductsController extends BaseController
         $SoKhachDoanToiThieu = $_POST['sokhachdoantoithieu'];
         $SoDem = $_POST['sodem'];
         $SoNgay = $_POST['songay'];
+               
         $urlcurrent = Product::get($id)->Anh;
         if (!isset($_FILES["fileToUpload"]) || $_FILES['fileToUpload']['tmp_name'][0] == "")
         {

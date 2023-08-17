@@ -61,12 +61,12 @@ require_once('views/admin/content_layouts.php'); ?>
                                         <div class="modal-body">
                                             <div class="row">
                                                 <div class="col-6">
-                                                    <label for="name">Tên tour</label>
+                                                    <label for="name">Tên tour <span style="color: red;">*</span></label>
                                                     <input class="form-control" type="text" id="name" placeholder="Tên tour" name="name" />
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="MaCN">Chi Nhánh</label>
+                                                <label for="MaCN">Chi Nhánh <span style="color: red;">*</span></label>
                                                 <select class="form-control" name="MaCN" id="MaCN">
                                                     <?php 
                                                         $db = DB::getInstance();
@@ -77,23 +77,23 @@ require_once('views/admin/content_layouts.php'); ?>
                                                     ?>
                                                 </select>
                                             </div>
-                                            <div class="form-group"> <label>Loại Tour</label> 
+                                            <div class="form-group"> <label>Loại Tour <span style="color: red;">*</span></label> 
                                             <select class="form-control" name="LoaiTour" id="LoaiTour">
                                                     <option value="1"> Trong ngày </option>
                                                     <option value="2"> Dài ngày </option>
                                                 </select>
                                             </div>
-                                            <div class="form-group"> <label>Hình ảnh </label>&nbsp <input type="file" name="fileToUpload" id="fileToUpload" /></div>
-                                            <div class="form-group"> <label>Ngày bắt đầu</label> <input type="date" class="form-control" id="ngaybatdau" name="NgayBatDau"></div>
-                                            <div class="form-group"> <label>Số khách Tour tối thiểu</label> <textarea class="form-control" name="SoKhachTourToiThieu" rows="1"></textarea></div>
-                                            <div class="form-group"> <label>Số khách Tour tối đa</label> <textarea class="form-control" name="SoKhachTourToiDa" rows="1"></textarea></div>
-                                            <div class="form-group"> <label>Giá vé lẻ người lớn</label> <textarea class="form-control" name="GiaVeLeNguoiLon" rows="1"></textarea></div>
-                                            <div class="form-group"> <label>Giá vé lẻ trẻ em</label> <textarea class="form-control" name="GiaVeLeTreEm" rows="1"></textarea></div>
-                                            <div class="form-group"> <label>Giá vé đoàn người lớn</label> <textarea class="form-control" name="GiaVeDoanNguoiLon" rows="1"></textarea></div>
-                                            <div class="form-group"> <label>Giá vé đoàn trẻ em</label> <textarea class="form-control" name="GiaVeDoanTreEm" rows="1"></textarea></div>
-                                            <div class="form-group"> <label>Số khách đoàn tối thiểu</label> <textarea class="form-control" name="SoKhachDoanToiThieu" rows="1"></textarea></div>
-                                            <div class="form-group"> <label>Số đêm</label> <textarea class="form-control" id="SoDem" name="SoDem" rows="1" disabled></textarea></div>
-                                            <div class="form-group"> <label>Số ngày</label> <textarea class="form-control" id="SoNgay" name="SoNgay" rows="1" disabled></textarea></div>
+                                            <div class="form-group"> <label>Hình ảnh<span style="color: red;">*</span> </label>&nbsp <input type="file" name="fileToUpload" id="fileToUpload" /></div>
+                                            <div class="form-group"> <label>Ngày bắt đầu <span style="color: red;">*</span> </label> <input type="date" class="form-control" id="ngaybatdau" name="NgayBatDau"></div>
+                                            <div class="form-group"> <label>Số khách Tour tối thiểu <span style="color: red;">*</span> </label> <textarea class="form-control" name="SoKhachTourToiThieu" rows="1"></textarea></div>
+                                            <div class="form-group"> <label>Số khách Tour tối đa <span style="color: red;">*</span> </label> <textarea class="form-control" name="SoKhachTourToiDa" rows="1"></textarea></div>
+                                            <div class="form-group"> <label>Giá vé lẻ người lớn<span style="color: red;">*</span></label> <textarea class="form-control" name="GiaVeLeNguoiLon" rows="1"></textarea></div>
+                                            <div class="form-group"> <label>Giá vé lẻ trẻ em<span style="color: red;">*</span></label> <textarea class="form-control" name="GiaVeLeTreEm" rows="1"></textarea></div>
+                                            <div class="form-group"> <label>Giá vé đoàn người lớn<span style="color: red;">*</span></label> <textarea class="form-control" name="GiaVeDoanNguoiLon" rows="1"></textarea></div>
+                                            <div class="form-group"> <label>Giá vé đoàn trẻ em<span style="color: red;">*</span></label> <textarea class="form-control" name="GiaVeDoanTreEm" rows="1"></textarea></div>
+                                            <div class="form-group"> <label>Số khách đoàn tối thiểu<span style="color: red;">*</span></label> <textarea class="form-control" name="SoKhachDoanToiThieu" rows="1"></textarea></div>
+                                            <div class="form-group"> <label>Số đêm<span style="color: red;">*</span></label> <textarea class="form-control" id="SoDem" name="SoDem" rows="1" disabled></textarea></div>
+                                            <div class="form-group"> <label>Số ngày<span style="color: red;">*</span></label> <textarea class="form-control" id="SoNgay" name="SoNgay" rows="1" disabled></textarea></div>
                                         </div>
                                         <div class="modal-footer">
                                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Đóng</button>
@@ -190,9 +190,9 @@ require_once('views/admin/content_layouts.php'); ?>
                                                 </div>
                                                 <form id="form-edit-student" action="index.php?page=admin&controller=products&action=edit" enctype="multipart/form-data" method="post">
                                                     <div class="modal-body">
-                                                         <div  class="col-12"><input class="form-control" type="hidden" placeholder="Name" name="id"  readonly/></div>
+                                                         <div  class="col-12"><input class="form-control" type="hidden" placeholder="Name" name="id" /></div>
                                                         <div class="row">
-                                                            <div  class="col-6"><label>Mã tour</label><input class="form-control" type="text" name="matour" disabled/></div>
+                                                            <div  class="col-6"><label>Mã tour</label><input class="form-control" type="text" name="matour" readonly /></div>
                                                             
                                                         </div>
                                                         
@@ -206,9 +206,9 @@ require_once('views/admin/content_layouts.php'); ?>
                                                         <div class="form-group"> <label>Giá vé đoàn người lớn</label> <input class="form-control" type="text" name="giavedoannguoilon" /></div>
                                                         <div class="form-group"> <label>Giá vé đoàn trẻ em</label> <input class="form-control" type="text" name="giavedoantreem" /></div>
                                                         <div class="form-group"> <label>Số khách đoàn tối tối thiểu</label> <input class="form-control" type="text" name="sokhachdoantoithieu" /></div>
-                                                        <div class="form-group"> <label>Số đêm</label> <input class="form-control" type="text" name="sodem" disabled/></div>
-                                                        <div class="form-group"> <label>Số ngày</label> <input class="form-control" type="text" name="songay" disabled/></div>
-                                                        <div class="form-group"> <label>Mã chi nhánh</label> <input class="form-control" type="text" name="macn" disabled/></div>
+                                                        <div class="form-group"> <label>Số đêm</label> <input class="form-control" type="text" name="sodem" readonly /></div>
+                                                        <div class="form-group"> <label>Số ngày</label> <input class="form-control" type="text" name="songay" readonly  /></div>
+                                                        <div class="form-group"> <label>Mã chi nhánh</label> <input class="form-control" type="text" name="macn"readonly  /></div>
                                                         <div class="form-group"> <label>Lịch trình</label> <div id="lichtrinh"> </div></div>
 
                                                         
@@ -245,7 +245,7 @@ require_once('views/admin/content_layouts.php'); ?>
                                                 <form id="form-add-student" action="index.php?page=admin&controller=products&action=addLichTrinh" enctype="multipart/form-data" method="post">
                                                     <div class="modal-body">
                                                         <div class="row">
-                                                            <div  class="col-6"><label>Mã tour</label><input class="form-control" type="text" placeholder="Mã tour" name="id" disabled/></div>  
+                                                            <div  class="col-6"><label>Mã tour</label><input class="form-control" type="text" placeholder="Mã tour" name="id" readonly /></div>  
                                                         </div>
                                                         <div class="row">
                                                             <div  class="col-6"><label>Ngày</label><input class="form-control" type="text" placeholder="Ngày" name="ngay" /></div>
