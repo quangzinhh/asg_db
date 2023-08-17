@@ -1,6 +1,6 @@
 <footer class="main-footer">
 	
-<div class="float-center d-none d-sm-block"><b>Phiên bản</b> 1.0.0<strong></strong> Copyright &copy; 2023 - <a href="#">Phát triển bởi Vinh - Phúc - Nguyên - Bình Team</a>.
+<div class="float-center d-none d-sm-block"><b>Phiên bản</b> 1.0.0<strong></strong> Copyright &copy; 2023 - <a href="#">Phát triển bởi Vinh - Phúc - Khang - Thành Team</a>.
    
    </div>
 

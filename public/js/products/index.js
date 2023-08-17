@@ -160,3 +160,17 @@ $(".btn-add").click(function (e) {
   // alert("Cleck");
 });
 
+$("#LoaiTour").change(function() {
+  var selectedValue = $(this).val();
+  // Check the selected value and modify input fields accordingly
+  if (selectedValue == "1") { // Trong ngày
+      $("#SoNgay").val("1"); // Set Số ngày to default value
+      $("#SoDem").val("0"); // Set Số đêm to default value
+      $("#SoNgay, #SoDem").attr("disabled", true); // Disable inputs
+  } else if (selectedValue === "2") { // Dài ngày
+      $("#SoNgay, #SoDem").val("").attr("disabled", false); // Enable inputs
+  }
+});
+       
+
+

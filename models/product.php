@@ -140,12 +140,18 @@ $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDo
         $db = DB::getInstance();
         $query = "CALL ThongKeDoanhThu('$nam')";
         $result = $db->query($query);
-        $tableHtml = "<table>";
-        $tableHtml .= "<tr><th>Tháng</th><th>Tổng doanh thu</th></tr>";
+        $tableHtml = '<table class="table table-bordered table-striped">';
+        $tableHtml .= '<thead><tr><th>Tháng</th><th>Tổng doanh thu</th></tr></thead>';
+        $tableHtml .= '<tbody>';
+
         while ($row = $result->fetch_assoc()) {
-            $tableHtml .= "<tr><td>" . $row["Thang"] . "</td><td>" . $row["TongDoanhThu"] . "</td></tr>";
+            $tableHtml .= '<tr><td>' . $row['Thang'] . '</td><td>' . $row['TongDoanhThu'] . '</td></tr>';
         }
-        $tableHtml .= "</table>";
+
+        $tableHtml .= '</tbody>';
+        $tableHtml .= '</table>';
+
+
         return $tableHtml;
     }
 }

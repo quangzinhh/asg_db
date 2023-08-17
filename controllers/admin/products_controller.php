@@ -73,9 +73,9 @@ class ProductsController extends BaseController
     public function xemdoanhthu() {
         $YearDoanhThu = $_POST['namdoanhthu'];
         $doanhthu = Product::doanhthu($YearDoanhThu);
-
         // Set a cookie with the table HTML
         setcookie('doanhthu_table', $doanhthu, time() + 3600, '/'); // Cookie expires in 1 hour
+        setcookie('year_doanhthu', $YearDoanhThu, time() + 3600, '/'); // Cookie expires in 1 hour
 
         // Perform the redirect
         header('Location: index.php?page=admin&controller=news&action=index');
