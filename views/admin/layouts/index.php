@@ -22,10 +22,10 @@ require_once('views/admin/content_layouts.php'); ?>
 					<div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
 						<div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
 							<div class="service-icon">
-								<i class="fas fa-user-graduate text-white"></i>
+								<i class="fas fa-plane text-white"></i>
 							</div>
-							<h4 class="mb-3">Danh sách Admin</h4>
-							<a class="btn btn-lg btn-primary rounded" href="index.php?page=admin&controller=admin&action=index">
+							<h4 class="mb-3">Địa điểm du lịch</h4>
+							<a class="btn btn-lg btn-primary rounded" href="#">
 								<i class="bi bi-arrow-right"></i>
 							</a>
 						</div>
@@ -35,7 +35,7 @@ require_once('views/admin/content_layouts.php'); ?>
 							<div class="service-icon">
 								<i class="fas fa-comments text-white"></i>
 							</div>
-							<h4 class="mb-3">Bình luận đánh giá</h4>
+							<h4 class="mb-3">Nhà cung cấp dịch vụ</h4>
 							<a class="btn btn-lg btn-primary rounded" href="#">
 								<i class="bi bi-arrow-right"></i>
 							</a>
@@ -47,7 +47,7 @@ require_once('views/admin/content_layouts.php'); ?>
 								<i class="fas fa-users-cog text-white"></i>
 							</div>
 							<h4 class="mb-3">Liên hệ khách hàng</h4>
-							<a class="btn btn-lg btn-primary rounded" href="index.php?page=admin&controller=user&action=index">
+							<a class="btn btn-lg btn-primary rounded" href="#">
 								<i class="bi bi-arrow-right"></i>
 							</a>
 						</div>
@@ -55,9 +55,9 @@ require_once('views/admin/content_layouts.php'); ?>
 					<div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
 						<div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
 							<div class="service-icon">
-								<i class="fas fa-cube text-white"></i>
+								<i class="fas fa-clipboard text-white"></i>
 							</div>
-							<h4 class="mb-3">Quản lý sản phẩm</h4>
+							<h4 class="mb-3">Quản lý tour</h4>
 							<a class="btn btn-lg btn-primary rounded" href="index.php?page=admin&controller=products&action=index"">
 								<i class="bi bi-arrow-right"></i>
 							</a>
@@ -66,9 +66,9 @@ require_once('views/admin/content_layouts.php'); ?>
 					<div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
 						<div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
 							<div class="service-icon">
-								<i class="fas fa-file text-white"></i>
+								<i class="fas fa-user text-white"></i>
 							</div>
-							<h4 class="mb-3">Quản lý tin tức</h4>
+							<h4 class="mb-3">Quản lý nhân viên</h4>
 							<a class="btn btn-lg btn-primary rounded" href="index.php?page=admin&controller=news&action=index">
 								<i class="bi bi-arrow-right"></i>
 							</a>
@@ -77,7 +77,7 @@ require_once('views/admin/content_layouts.php'); ?>
 					<div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
 						<div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
 							<div class="service-icon">
-								<i class="fas fa-newspaper text-white"></i>
+								<i class="fas fa-building text-white"></i>
 							</div>
 							<h4 class="mb-3">Danh sách chi nhánh</h4>
 							<a class="btn btn-lg btn-primary rounded" href="index.php?page=admin&controller=company&action=index">

@@ -63,9 +63,9 @@
 							if($_SESSION["user"] == "admin"){
 								echo '
 									<li class="nav-item">
-										<a class="nav-link" href="index.php?page=admin&controller=admin&action=index">
-											<i class="nav-icon fas fa-user-graduate"> </i>
-											<p>Danh sách Admin</p>
+										<a class="nav-link" href="#">
+											<i class="nav-icon fas fa-plane"> </i>
+											<p>Địa điểm du lịch</p>
 										</a>
 									</li>
 								';
@@ -75,30 +75,30 @@
 						<li class="nav-item">
 							<a class="nav-link" href="#">
 								<i class="nav-icon fas fa-comments"></i>
-								<p>Bình luận đánh giá</p>
+								<p>Nhà cung cấp dịch vụ</p>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#">
 								<i class="nav-icon fas fa-users-cog"></i>
-								<p>Danh sách User</p>
+								<p>Liên hệ khách hàng</p>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="index.php?page=admin&controller=products&action=index">
-								<i class="nav-icon fas fa-cube"></i>
+								<i class="nav-icon fas fa-clipboard"></i>
 								<p>Quản lý Tour</p>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#">
-								<i class="nav-icon fa fa-file" aria-hidden="true"></i>
-								<p>Quản lý tin tức</p>
+								<i class="nav-icon fa fa-user" aria-hidden="true"></i>
+								<p>Quản lý nhân viên</p>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="index.php?page=admin&controller=company&action=index">
-								<i class="nav-icon fa fa-newspaper" aria-hidden="true"></i>
+								<i class="nav-icon fa fa-building" aria-hidden="true"></i>
 								<p>Danh sách chi nhánh</p>
 							</a>
 						</li>
