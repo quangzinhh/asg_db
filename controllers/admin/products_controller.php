@@ -89,6 +89,18 @@ class ProductsController extends BaseController
         // Perform the redirect
         header('Location: index.php?page=admin&controller=news&action=index');
     }
+    public function xemlichtrinh() {
+        $matour = $_POST['matour'];
+        $ngay = $_POST['ngaybatdau'];
+        $tentour = $_POST['ten'];
+        setcookie('tentour', $tentour, time() + 36000, '/');
+
+        $lichtrinhchuyen = Product::xemlichtrinh($matour, $ngay);
+        setcookie('lichtrinhchuyen', $lichtrinhchuyen, time() + 36000, '/');
+
+        // Perform the redirect
+        header('Location: index.php?page=admin&controller=staff&action=index');
+    }
     public function edit(){
         $id = $_POST['id'];
         $code = (string)date("Y_m_d_h_i_sa");
@@ -108,6 +120,7 @@ class ProductsController extends BaseController
         $SoNgay = $_POST['songay'];
                
         $urlcurrent = Product::get($id)->Anh;
+        
         if (!isset($_FILES["fileToUpload"]) || $_FILES['fileToUpload']['tmp_name'][0] == "")
         {
             Product::update($MaTour, $TenTour, $urlcurrent, $NgayBatDau, $SoKhachTourToiThieu, 

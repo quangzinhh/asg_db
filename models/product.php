@@ -154,5 +154,21 @@ $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDo
 
         return $tableHtml;
     }
+    static function xemlichtrinh($matour, $ngay) {
+        $db = DB::getInstance();
+        $query = "CALL LichTrinhChuyen('$matour', '$ngay')";
+        $result = $db->query($query);
+        $tableLichtrinh = '<table class="table table-bordered table-striped">';
+        $tableLichtrinh .= '<thead><tr><th>STT Ngày</th><th>Thời Gian</th><th>Đơn vị vận chuyển</th><th>Mô tả hành động</th></tr></thead>';
+        $tableLichtrinh .= '<tbody>';
+
+        while ($row = $result->fetch_assoc()) {
+            $tableLichtrinh .= '<tr><td>' . $row['STTNgay'] . '</td><td>' . $row['ThoiGian'] . '</td><td>' . $row['DonViVanChuyen'] . '</td><td>' . $row['MoTaHanhDong'] . '</td></tr>';
+        }
+
+        $tableLichtrinh .= '</tbody>';
+        $tableLichtrinh .= '</table>';
+        return $tableLichtrinh;                                      
+    }
 }
 ?>

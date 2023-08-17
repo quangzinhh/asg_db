@@ -153,6 +153,8 @@ $(".btn-delete").click(function (e) {
 
 
 
+
+
 $(".btn-add").click(function (e) {
   var id = $(this).data("id");
   $("#AddStudentModal input[name='id']").val(id);

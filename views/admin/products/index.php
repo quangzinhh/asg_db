@@ -149,7 +149,7 @@ require_once('views/admin/content_layouts.php'); ?>
                                                         );
                                                         $LichTrinh = $LichTrinh."<div>".date("H:i", strtotime($row["GioBatDau"]))." - ".date("H:i", strtotime($row['GioKetThuc'])).": ".$hanhDongMapping[$row['LoaiHanhDong']]."</div><br>";
                                                     }
-                                                }   
+                                                } 
                                                 echo 
                                                 "<tr class=\"text-center\">
                                                     <td>"
@@ -172,6 +172,16 @@ require_once('views/admin/content_layouts.php'); ?>
                                                     data-lichtrinh='$LichTrinh'
                                                     data-giaveletreem='$product->GiaVeLeTreEm' data-giavedoannguoilon='$product->GiaVeDoanNguoiLon' data-giavedoantreem='$product->GiaVeDoanTreEm' data-sokhachdoantoithieu='$product->SoKhachDoanToiThieu' data-sodem='$product->SoDem' data-songay='$product->SoNgay' data-macn='$product->MaCN'> <i style=\"font-size:17px;\" class=\"fas fa-edit\" ></i></button>
                                                     <button class=\"btn-add btn btn-success btn-xs\" style=\"margin-right: 5px\" data-id='$product->MaTour' ><i style=\"font-size:17px;\" class=\"fas fa-plus\"></i></button> 
+                                                    <form action=\"index.php?page=admin&controller=products&action=xemlichtrinh\" method=\"POST\">
+                                                        <input type=\"hidden\" name=\"matour\" value='$product->MaTour'>
+                                                        <input type=\"hidden\" name=\"ngaybatdau\" value='$product->NgayBatDau'>
+                                                        <input type=\"hidden\" name=\"ten\" value='$product->TenTour'>
+                                                        
+                                                        <button class=\"btn btn-view btn-xs\" style=\"margin-right: 5px\" type=\"submit\">
+                                                            <i style=\"font-size: 17px;\" class=\"fas fa-eye\"></i>
+                                                        </button> 
+                                                    </form>
+
                                                     <button class=\"btn-delete btn btn-danger btn-xs\" style=\"margin-right: 5px\" data-id='$product->MaTour' ><i style=\"font-size:17px;\" class=\"fas fa-trash\"></i></button> 
                                                     </td>     
                                                     <td>
@@ -210,7 +220,7 @@ require_once('views/admin/content_layouts.php'); ?>
                                                         <div class="form-group"> <label>Số ngày</label> <input class="form-control" type="text" name="songay" readonly  /></div>
                                                         <div class="form-group"> <label>Mã chi nhánh</label> <input class="form-control" type="text" name="macn"readonly  /></div>
                                                         <div class="form-group"> <label>Lịch trình</label> <div id="lichtrinh"> </div></div>
-
+                                                        
                                                         
                                                         <!-- <div class="form-group"> <label>Mã Chi Nhánh</label> <textarea class="form-control" name="ca" rows="3"></textarea></div> -->
 
