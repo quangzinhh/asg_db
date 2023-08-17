@@ -70,12 +70,15 @@ class ProductsController extends BaseController
     }
     public function addLichtrinh() {
         $MaTour = $_POST['id'];
+        $ngay_batdau = $_POST['ngaystart'];
+        $MaDV = $_POST['MaDV'];
         $Ngay = $_POST['ngay'];
         $HanhDong = $_POST['action'];
         $GioBatDau = $_POST['starttime'];
         $GioKetThuc = $_POST['endtime'];
         $Mota = $_POST['mota'];
-        Product::addLichtrinh($MaTour, $Ngay, $HanhDong, $GioBatDau, $GioKetThuc, $Mota);
+
+        Product::addLichtrinh($MaTour, $Ngay, $HanhDong, $GioBatDau, $GioKetThuc, $Mota, $MaDV, $ngay_batdau);
         header('Location: index.php?page=admin&controller=products&action=index');
 
     }

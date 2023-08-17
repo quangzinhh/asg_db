@@ -171,7 +171,7 @@ require_once('views/admin/content_layouts.php'); ?>
                                                     <button class=\"btn-edit btn btn-primary btn-xs\" style=\"margin-right: 5px;\" data-id='$product->MaTour' data-matour='$product->MaTour' data-anh='$product->Anh' data-tentour='$product->TenTour' data-ngaybatdau='$product->NgayBatDau' data-sokhachtourtoithieu='$product->SoKhachTourToiThieu' data-sokhachtourtoida='$product->SoKhachTourToiDa' data-giavelenguoilon='$product->GiaVeLeNguoiLon'
                                                     data-lichtrinh='$LichTrinh'
                                                     data-giaveletreem='$product->GiaVeLeTreEm' data-giavedoannguoilon='$product->GiaVeDoanNguoiLon' data-giavedoantreem='$product->GiaVeDoanTreEm' data-sokhachdoantoithieu='$product->SoKhachDoanToiThieu' data-sodem='$product->SoDem' data-songay='$product->SoNgay' data-macn='$product->MaCN'> <i style=\"font-size:17px;\" class=\"fas fa-edit\" ></i></button>
-                                                    <button class=\"btn-add btn btn-success btn-xs\" style=\"margin-right: 5px\" data-id='$product->MaTour' ><i style=\"font-size:17px;\" class=\"fas fa-plus\"></i></button> 
+                                                    <button class=\"btn-add btn btn-success btn-xs\" style=\"margin-right: 5px\" data-id='$product->MaTour' data-ngaystart='$product->NgayBatDau' ><i style=\"font-size:17px;\" class=\"fas fa-plus\"></i></button> 
                                                     <form action=\"index.php?page=admin&controller=products&action=xemlichtrinh\" method=\"POST\">
                                                         <input type=\"hidden\" name=\"matour\" value='$product->MaTour'>
                                                         <input type=\"hidden\" name=\"ngaybatdau\" value='$product->NgayBatDau'>
@@ -258,6 +258,9 @@ require_once('views/admin/content_layouts.php'); ?>
                                                             <div  class="col-6"><label>Mã tour</label><input class="form-control" type="text" placeholder="Mã tour" name="id" readonly /></div>  
                                                         </div>
                                                         <div class="row">
+                                                            <div  class="col-6"><label>Ngày bắt đầu</label><input class="form-control" type="text" placeholder="Ngày bắt đầu" name="ngaystart" readonly /></div>  
+                                                        </div>
+                                                        <div class="row">
                                                             <div  class="col-6"><label>Ngày</label><input class="form-control" type="text" placeholder="Ngày" name="ngay" /></div>
                                                             
                                                         </div>
@@ -270,6 +273,16 @@ require_once('views/admin/content_layouts.php'); ?>
                                                             <option value="6">Check in</option>
                                                             <option value="7">Check out</option>
                                                         </select></div>
+                                                        <label for="MaDV">Đơn vị cung cấp dịch vụ <span style="color: red;">*</span></label>
+                                                        <select class="form-control" name="MaDV" id="MaDV">
+                                                            <?php 
+                                                                $db = DB::getInstance();
+                                                                $req = $db->query("SELECT * FROM donvicungcapdichvu");
+                                                                while($row = $req->fetch_assoc()) {
+                                                                    echo "<option value='" . $row['MaDonVi'] . "'>" . $row['MaDonVi'] . "</option>";
+                                                                }
+                                                            ?>
+                                                        </select>
                                                         <div class="form-group"> <label>Giờ bắt đầu</label> 
                                                             <input type="time" name="starttime" id="starttime" />
                                                         </div>

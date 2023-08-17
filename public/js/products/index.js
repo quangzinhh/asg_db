@@ -157,7 +157,10 @@ $(".btn-delete").click(function (e) {
 
 $(".btn-add").click(function (e) {
   var id = $(this).data("id");
+  var ngaystart = $(this).data("ngaystart");
+
   $("#AddStudentModal input[name='id']").val(id);
+  $("#AddStudentModal input[name='ngaystart']").val(ngaystart);
   $("#AddStudentModal").modal("show");
   // alert("Cleck");
 });

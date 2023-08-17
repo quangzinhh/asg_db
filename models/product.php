@@ -128,12 +128,15 @@ $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDo
                 WHERE `MaTour` = '$MaTour'
             ;");
     }
-    static function addLichtrinh($MaTour, $Ngay, $HanhDong, $GioBatDau, $GioKetThuc, $MoTa)
+    static function addLichtrinh($MaTour, $Ngay, $HanhDong, $GioBatDau, $GioKetThuc, $MoTa, $MaDV, $ngay_batdau)
     {
         $db = DB::getInstance();
         $req = $db->query(
             "INSERT INTO `hanhdonglichtrinhtour` (`MaTour`, `STTNgay`, `LoaiHanhDong`, `GioBatDau`, `GioKetThuc`, `MoTa`) 
             VALUES ('$MaTour', '$Ngay', '$HanhDong', '$GioBatDau', '$GioKetThuc', '$MoTa');");
+        $req1 = $db->query(
+            "INSERT INTO `donvicungcapdichvuchuyen` (`MaTour`, `NgayKhoiHanh`, `STTNgay`, `Loai`, `MaDonVi`) 
+            VALUES ('$MaTour', '$ngay_batdau', '$Ngay', '$HanhDong', '$MaDV');");
     }
     static function doanhthu($nam)
     {
