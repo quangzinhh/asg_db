@@ -2,7 +2,7 @@
   include_once('views/main/navbar.php');
 ?>
 <section class="background-radial-gradient overflow-hidden">
-  <style>
+  <!-- <style>
     .background-radial-gradient {
       background-color: hsl(218, 41%, 15%);
       background-image: radial-gradient(650px circle at 0% 0%,
@@ -41,14 +41,14 @@
       background-color: hsla(0, 0%, 100%, 0.9) !important;
       backdrop-filter: saturate(200%) blur(25px);
     }
-  </style>
+  </style> -->
 
   <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5 ">
     <div class="row gx-lg-5 align-items-center mb-5">
       <div class="col-lg-6 mb-5 mb-lg-0">
-        <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-          Choose Bosch <br />
-          <span style="color: hsl(218, 81%, 75%)">Choose your success</span>
+        <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 70%)">
+          Chọn Traveloka <br />
+          <span style="color: hsl(218, 81%, 75%)">Nâng tầm chuyến đi theo cách bạn muốn</span>
         </h1>
       </div>
 
@@ -56,7 +56,7 @@
         <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
         <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
 
-        <div class="card bg-glass">
+        <div class="card" style="background-color: #E0FEFE">
           <div class="card-body px-4 py-5 px-md-5">
 				<form action="index.php?page=main&controller=login&action=index" method="POST" class="login100-form validate-form">
         
