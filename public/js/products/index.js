@@ -176,6 +176,7 @@ $("#LoaiTour").change(function() {
       $("#SoNgay, #SoDem").val("").attr("disabled", false); // Enable inputs
   }
 });
-       
+
+
 
 

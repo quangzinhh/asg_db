@@ -145,7 +145,9 @@ require_once('views/admin/content_layouts.php'); ?>
                                                             4 => "Ăn trưa",
                                                             5 => "Ăn tối",
                                                             6 => "Check in",
-                                                            7 => "Check out"
+                                                            7 => "Check out",
+                                                            
+
                                                         );
                                                         $LichTrinh = $LichTrinh."<div>".date("H:i", strtotime($row["GioBatDau"]))." - ".date("H:i", strtotime($row['GioKetThuc'])).": ".$hanhDongMapping[$row['LoaiHanhDong']]."</div><br>";
                                                     }
@@ -272,6 +274,7 @@ require_once('views/admin/content_layouts.php'); ?>
                                                             <option value="5">Ăn tối</option>
                                                             <option value="6">Check in</option>
                                                             <option value="7">Check out</option>
+                                                            <option value="8">Di chuyển</option>
                                                         </select></div>
                                                         <label for="MaDV">Đơn vị cung cấp dịch vụ <span style="color: red;">*</span></label>
                                                         <select class="form-control" name="MaDV" id="MaDV">

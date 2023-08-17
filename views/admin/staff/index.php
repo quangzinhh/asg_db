@@ -31,7 +31,7 @@ require_once('views/admin/content_layouts.php'); ?>
 
                         // Display the HTML table
                         echo $tableHtml;
-                    }
+                    } 
                     ?>
                 </div>
             </div>

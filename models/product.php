@@ -131,12 +131,18 @@ $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDo
     static function addLichtrinh($MaTour, $Ngay, $HanhDong, $GioBatDau, $GioKetThuc, $MoTa, $MaDV, $ngay_batdau)
     {
         $db = DB::getInstance();
+        if($HanhDong == 8) {
+            $req1 = $db->query(
+                "INSERT INTO `donvicungcapdichvuchuyen` (`MaTour`, `NgayKhoiHanh`, `STTNgay`, `Loai`, `MaDonVi`) 
+                VALUES ('$MaTour', '$ngay_batdau', '$Ngay', '$HanhDong', '$MaDV');");
+        } else {
         $req = $db->query(
             "INSERT INTO `hanhdonglichtrinhtour` (`MaTour`, `STTNgay`, `LoaiHanhDong`, `GioBatDau`, `GioKetThuc`, `MoTa`) 
             VALUES ('$MaTour', '$Ngay', '$HanhDong', '$GioBatDau', '$GioKetThuc', '$MoTa');");
         $req1 = $db->query(
             "INSERT INTO `donvicungcapdichvuchuyen` (`MaTour`, `NgayKhoiHanh`, `STTNgay`, `Loai`, `MaDonVi`) 
             VALUES ('$MaTour', '$ngay_batdau', '$Ngay', '$HanhDong', '$MaDV');");
+        }
     }
     static function doanhthu($nam)
     {
@@ -158,6 +164,7 @@ $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDo
         return $tableHtml;
     }
     static function xemlichtrinh($matour, $ngay) {
+        $i = 0;
         $db = DB::getInstance();
         $query = "CALL LichTrinhChuyen('$matour', '$ngay')";
         $result = $db->query($query);
@@ -167,10 +174,13 @@ $SoKhachTourToiDa, $GiaVeLeNguoiLon, $GiaVeLeTreEm, $GiaVeDoanNguoiLon, $GiaVeDo
 
         while ($row = $result->fetch_assoc()) {
             $tableLichtrinh .= '<tr><td>' . $row['STTNgay'] . '</td><td>' . $row['ThoiGian'] . '</td><td>' . $row['DonViVanChuyen'] . '</td><td>' . $row['MoTaHanhDong'] . '</td></tr>';
+            $i = $i+1;
         }
 
         $tableLichtrinh .= '</tbody>';
         $tableLichtrinh .= '</table>';
+        if($i==0) $tableLichtrinh .= '<h4>Chưa có phương tiện di chuyển, vui lòng chọn dịch vụ</h4>';
+
         return $tableLichtrinh;                                      
     }
 }
